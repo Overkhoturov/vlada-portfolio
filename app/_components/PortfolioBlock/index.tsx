@@ -9,30 +9,35 @@ const cards = [
     mainTags: ['web app', 'admin panel'],
     additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
     img: '/portfolio/pixual.png',
+    figmaUrl: 'https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share',
   },
   {
     title: 'eXpenso',
     mainTags: ['Mobile app'],
     additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
     img: '/portfolio/expenso.png',
+    figmaUrl: 'https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share',
   },
   {
     title: 'Breezify',
     mainTags: ['web app', 'admin panel'],
     additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
     img: '/portfolio/breezify.png',
+    figmaUrl: 'https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share',
   },
   {
     title: 'Lettuce',
     mainTags: ['dashboard'],
     additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
     img: '/portfolio/lettuce.png',
+    figmaUrl: 'https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share',
   },
   {
     title: 'GTS-3100',
     mainTags: ['Mobile app'],
     additionalTags: ['Content generation', 'Detalisation', 'management', 'Transactions', 'credit history'],
     img: '/portfolio/gts.png',
+    figmaUrl: 'https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share',
   },
 ]
 
