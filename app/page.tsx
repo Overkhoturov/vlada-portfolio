@@ -14,7 +14,6 @@ export default function Home() {
             width="800"
             height="450"
             src="https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share"
-            allowfullscreen
           />
       </BasicContainer>
     </main>
