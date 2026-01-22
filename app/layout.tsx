@@ -3,9 +3,6 @@ import { Roboto } from "next/font/google";
 import "./globals.css";
 import ThemeProvider from "./theme-provider";
 
-// import { GlobalStyles } from "@/lib/ThemeConfig";
-// import { useState } from "react";
-
 const robotoSans = Roboto({
   variable: "--font-roboto-sans",
   subsets: ["latin", "cyrillic"],
