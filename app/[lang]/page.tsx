@@ -10,7 +10,10 @@ export default async function Page({ params }: PageProps<'/[lang]'>) {
   const dict = await getDictionary(lang)
   return (
     <main>
-      {dict.products.cart}
+      <span className="text-headline-medium-strong">
+
+        {dict.products.cart}
+      </span>
       <PortfolioBlock />
     </main>
   );

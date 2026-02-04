@@ -4,9 +4,18 @@ const nextConfig: NextConfig = {
   output: "export",
   reactStrictMode: true,
   images: {
-    unoptimized: true
+    unoptimized: true,
+    // dangerouslyAllowSVG: true,
+    // contentDispositionType: 'attachment',
+    // contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  // Use rewrites to map / to Russian version
+  // webpack(config) {
+  //   config.module.rules.push({
+  //     test: /\.svg$/,
+  //     use: ['@svgr/webpack'],
+  //   });
+  //   return config;
+  // },
   async rewrites() {
     return [
       {

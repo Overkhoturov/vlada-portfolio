@@ -1,5 +1,5 @@
 import styled from 'styled-components';
 
-const StyledHeader = styled.header`
-
+export const StyledHeader = styled.header`
+  // ${({theme}) => theme}
 `
