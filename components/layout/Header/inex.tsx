@@ -2,10 +2,6 @@
 'use client'
 import AboutIcon from "@/components/icons/About";
 import HomeIcon from "@/components/icons/Home";
-import { BasicContainer } from "../Container";
-import { StyledHeader } from "./index.styles";
-// import AboutIcon from '../../../public/icons/vk.svg'
-import NavItem, { TNavItem } from "./NavItem";
 import { useContext } from "react";
 import { ThemeContext } from "@/app/theme-provider";
 import LanguageIcon from "@/components/icons/Language";
@@ -15,17 +11,29 @@ import LogoIcon from "@/components/icons/Logo";
 import GmailIcon from "@/components/icons/Gmail";
 import TGIcon from "@/components/icons/Telegram";
 import HHIcon from "@/components/icons/HH";
-
+import { BasicContainer } from "../Container";
+import { StyledHeader } from "./index.styles";
+import NavItem, { TNavItem } from "./NavItem";
+import classNames from "classnames";
+import { usePathname, useRouter } from "next/navigation";
 
 const Header = () => {
   const {toggleTheme, isDark} = useContext(ThemeContext);
-
-  // const handleThemeChange = () => {
-  //   toggleTheme()
-  // }
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handleLangChange = () => {
-    // toggleTheme()
+    const currentPath = pathname;
+    
+    if (currentPath.startsWith('/en')) {
+      const newPath = currentPath.replace(/^\/en/, '/ru');
+      router.push(newPath);
+    } else if (currentPath.startsWith('/ru')) {
+      const newPath = currentPath.replace(/^\/ru/, '/en');
+      router.push(newPath);
+    } else {
+      router.push(`/en${currentPath === '/' ? '' : currentPath}`);
+    }
   }
 
   const leftItems: TNavItem[] = [
@@ -36,7 +44,7 @@ const Header = () => {
   ]
 
   const rightItems: TNavItem[] = [
-    {link: 'mailto:mail@htmlacademy.ru', linkType: 'local', text: 'Email', icon: <GmailIcon /> },
+    {link: 'mailto:sunnyastria@gmail.com', linkType: 'local', text: 'Email', icon: <GmailIcon /> },
     {link: 'https://t.me/sunnyastria', linkType: 'out', text: 'Telegram', icon: <TGIcon /> },
     {link: 'https://career.habr.com/sunnyastria1234', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
   ]
@@ -44,8 +52,12 @@ const Header = () => {
   return (
     <BasicContainer className="sticky top-0 z-10">
       <StyledHeader className="p-8">
-        <nav className="px-8 py-4 rounded-3xl bg-primary-200 flex justify-between items-center shadow-drop-800-medium">
-          <ul className="flex gap">
+        <nav className={classNames({
+          "px-8 py-4 rounded-3xl bg-primary-200 flex justify-between items-center": true,
+          "text-primary-700 bg-primary-200 shadow-drop-800-medium": !isDark,
+          "text-primary-100 bg-primary-700 shadow-inner-100-small": isDark
+        })}>
+          <ul className="flex gap w-1/3">
             {leftItems.map((item) => (
               <NavItem
                 key={item.text}
@@ -54,7 +66,7 @@ const Header = () => {
             ))}
           </ul>
           <LogoIcon />
-          <ul className="flex gap">
+          <ul className="flex gap w-1/3">
             {rightItems.map((item) => (
               <NavItem
                 key={item.text}

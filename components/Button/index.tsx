@@ -4,16 +4,17 @@ import classNames from "classnames";
 import { ThemeContext } from "@/app/theme-provider";
 
 type Props = {
-  text: string;
+  text?: string;
   icon?: ReactNode;
   variant: 'outlined' | 'filled' | 'ghost';
   type: 'primary' | 'secondary';
   size: 'lg' | 'md';
   disabled?: boolean;
   onClick?: () => void;
+  className?: string
 }
 
-const Button: FC<Props> = ({text, icon, type, variant, disabled, onClick}) => {
+const Button: FC<Props> = ({text, icon, type, variant, disabled, onClick, className = ''}) => {
   const {isDark} = useContext(ThemeContext);
 
   return (
@@ -23,16 +24,25 @@ const Button: FC<Props> = ({text, icon, type, variant, disabled, onClick}) => {
           type === 'primary' && variant === 'filled',
         'border': variant === 'outlined',
         'border-primary-700 text-primary-700 hover:border-primary-900 hover:text-primary-900 disabled:border-primary-500 disabled:text-primary-500':
-          type === 'secondary' && variant === 'outlined',
+          type === 'secondary' && variant === 'outlined' && !isDark,
         'text-primary-700 hover:text-primary-900 disabled:text-primary-500':
-          type === 'secondary' && variant === 'ghost',
+          type === 'secondary' && variant === 'ghost' && !isDark,
+        'border-primary-100 text-primary-100 hover:border-primary-400 hover:text-primary-400 disabled:border-primary-500 disabled:text-primary-500':
+          type === 'secondary' && variant === 'outlined' && isDark,
+        'text-primary-100 hover:text-primary-400 disabled:text-primary-500':
+          type === 'secondary' && variant === 'ghost' && isDark,
+          [className]: true,
       })}>
-      <div className="w-6 h-6">
-        {icon}
-      </div>
-      <span className="text-body-medium-strong">
-        {text}
-      </span>
+      {icon && (
+        <div className="w-6 h-6">
+          {icon}
+        </div>
+      )}
+      {text && (
+        <span className="text-body-medium-strong">
+          {text}
+        </span>
+      )}
     </StyledButton>
   ) 
 }

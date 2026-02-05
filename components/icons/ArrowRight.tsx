@@ -1,0 +1,14 @@
+const ArrowRight = () => (
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <g clipPath="url(#clip0_277_7321)">
+    <path d="M9 7.48857C9 7.05417 9.57435 6.83662 9.91026 7.14379L14.8438 11.6552C15.0521 11.8456 15.0521 12.1544 14.8438 12.3448L9.91026 16.8562C9.57435 17.1634 9 16.9458 9 16.5114V7.48857Z" fill="currentColor"/>
+    </g>
+    <defs>
+    <clipPath id="clip0_277_7321">
+    <rect width="24" height="24" fill="currentColor"/>
+    </clipPath>
+    </defs>
+  </svg>
+)
+
+export default ArrowRight;
