@@ -1,20 +1,36 @@
 'use client'
-import { lightTheme } from "@/lib/ThemeConfig";
-// import { GlobalStyles } from '../lib/ThemeConfig';
-import { ThemeProvider as StyledThemeProvider  } from "styled-components";
-// import { createContext } from 'react'
+import { useCallback, useState } from "react";
+import { createContext } from 'react'
  
-// export const ThemeContext = createContext({})
+export enum ThemeType {
+  light = 'light',
+  dark = 'dark',
+}
+
+export type ThemeContextType = {
+  toggleTheme: () => void;
+  theme:ThemeType;
+  isDark: boolean;
+}
+
+export const ThemeContext = createContext<ThemeContextType>({
+  theme: ThemeType.light, toggleTheme: () => null, isDark: false
+})
  
 const ThemeProvider = ({
   children,
 }: {
   children: React.ReactNode
-}) => (
-  <StyledThemeProvider theme={lightTheme}>
-    {/* <GlobalStyles /> */}
-    {children}
-  </StyledThemeProvider>
-)
+}) => {
+  const [theme, setTheme] = useState(ThemeType.light);
+  const toggleTheme = useCallback(() => {
+    setTheme(prev => prev === ThemeType.dark ? ThemeType.light : ThemeType.dark)
+  }, [])
+  return (
+    <ThemeContext value={{ theme, toggleTheme, isDark: theme === ThemeType.dark }}>
+      {children}
+    </ThemeContext>
+  )
+}
 
 export default ThemeProvider;
