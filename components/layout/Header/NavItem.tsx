@@ -18,10 +18,10 @@ const NavItem: FC<TNavItem> = ({icon, text, link, linkType, onClick}) => {
     <li>
       {link && linkType ? (
         <LinkComponent lang={currentLang} link={link} linkType={linkType}>
-          <Button variant="ghost" type="secondary" text={text} icon={icon} size='lg' />
+          <Button className="whitespace-nowrap" variant="ghost" type="secondary" text={text} icon={icon} size='lg' />
         </LinkComponent>
       ) : (
-        <Button variant="ghost" type="secondary" text={text} icon={icon} size='lg' onClick={onClick} />
+        <Button className="whitespace-nowrap" variant="ghost" type="secondary" text={text} icon={icon} size='lg' onClick={onClick} />
       )}
     </li>
   )

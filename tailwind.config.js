@@ -4,9 +4,6 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
- 
-    // Or if using `src` directory:
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
     extend: {
@@ -22,15 +19,17 @@ module.exports = {
         sans: ['Roboto', 'sans-serif'],
       },
       fontSize: {
-        'headline-medium-strong': ['42px', { lineHeight: '50px', letterSpacing: '0%', fontWeight: '600' }],
-        'headline-small-strong': ['28px', { lineHeight: '36px', letterSpacing: '0%', fontWeight: '600' }],
+        'headline-large-strong': ['2.625rem', { lineHeight: '3.125rem', letterSpacing: '0%', fontWeight: '600' }],
+        'headline-medium-strong': ['2.25rem', { lineHeight: '2.75rem', letterSpacing: '0%', fontWeight: '600' }],
+        'headline-small-strong': ['1.75rem', { lineHeight: '2.25rem', letterSpacing: '0%', fontWeight: '600' }],
+        'headline-extra-small-strong': ['1.5rem', { lineHeight: '2rem', letterSpacing: '0%', fontWeight: '500' }],
         
-        'display-medium-strong': ['32px', { lineHeight: '40px', letterSpacing: '0%', fontWeight: '500' }],
-        'display-small-strong': ['22px', { lineHeight: '36px', letterSpacing: '0%', fontWeight: '500' }],
+        'display-medium-strong': ['2rem', { lineHeight: '2.5rem', letterSpacing: '0%', fontWeight: '500' }],
+        'display-small-strong': ['1.375rem', { lineHeight: '2.25px', letterSpacing: '0%', fontWeight: '500' }],
         
-        'body-medium': ['16px', { lineHeight: '26px', letterSpacing: '0%', fontWeight: '400' }],
-        'body-medium-strong': ['16px', { lineHeight: '24px', letterSpacing: '0%', fontWeight: '500' }],
-        'body-small-strong': ['14px', { lineHeight: '22px', letterSpacing: '0%', fontWeight: '400' }],
+        'body-medium': ['1rem', { lineHeight: '1.625rem', letterSpacing: '0%', fontWeight: '400' }],
+        'body-medium-strong': ['1rem', { lineHeight: '1.5rem', letterSpacing: '0%', fontWeight: '500' }],
+        'body-small-strong': ['0.875rem', { lineHeight: '1.375rem', letterSpacing: '0%', fontWeight: '500' }],
       },
       colors: {
         'primary': {

@@ -1,4 +1,4 @@
-import { FC, ReactNode, useContext } from "react";
+import { FC, HTMLProps, ReactNode, useContext } from "react";
 import { StyledButton } from "./index.style";
 import classNames from "classnames";
 import { ThemeContext } from "@/utils/providers/theme-provider";
@@ -11,7 +11,7 @@ type Props = {
   size: 'lg' | 'md';
   disabled?: boolean;
   onClick?: () => void;
-  className?: string
+  className?: HTMLProps<HTMLElement>["className"];
 }
 
 const Button: FC<Props> = ({text, icon, type, variant, disabled, onClick, className = ''}) => {
