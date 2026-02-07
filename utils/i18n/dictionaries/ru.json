@@ -1,0 +1,11 @@
+{
+  "navigation": {
+    "home": "Главная",
+    "about": "Обо мне",
+    "language": "Рус",
+    "theme": {
+      "dark": "Темная",
+      "light": "Светлая"
+    }
+  }
+}

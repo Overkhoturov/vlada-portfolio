@@ -1,7 +1,7 @@
 import { FC, ReactNode, useContext } from "react";
 import { StyledButton } from "./index.style";
 import classNames from "classnames";
-import { ThemeContext } from "@/app/theme-provider";
+import { ThemeContext } from "@/utils/providers/theme-provider";
 
 type Props = {
   text?: string;

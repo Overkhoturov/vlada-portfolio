@@ -2,8 +2,8 @@
 'use client'
 import AboutIcon from "@/components/icons/About";
 import HomeIcon from "@/components/icons/Home";
-import { useContext } from "react";
-import { ThemeContext } from "@/app/theme-provider";
+import { FC, useContext } from "react";
+import { ThemeContext } from "@/utils/providers/theme-provider";
 import LanguageIcon from "@/components/icons/Language";
 import DarkModeIcon from "@/components/icons/DarkMode";
 import LightModeIcon from "@/components/icons/LightMode";
@@ -16,8 +16,13 @@ import { StyledHeader } from "./index.styles";
 import NavItem, { TNavItem } from "./NavItem";
 import classNames from "classnames";
 import { usePathname, useRouter } from "next/navigation";
+import { DictionaryType } from "@/utils/i18n/dictionaries";
 
-const Header = () => {
+type Props = {
+  dictionary: DictionaryType;
+}
+
+const Header: FC<Props> = ({ dictionary }) => {
   const {toggleTheme, isDark} = useContext(ThemeContext);
   const router = useRouter();
   const pathname = usePathname();
@@ -37,14 +42,14 @@ const Header = () => {
   }
 
   const leftItems: TNavItem[] = [
-    {link: '/', linkType: 'local', text: 'Главная', icon: <HomeIcon /> },
-    {link: '/about', linkType: 'local', text: 'Обо мне', icon: <AboutIcon /> },
-    {onClick: handleLangChange, text: 'Рус', icon: <LanguageIcon /> },
-    {onClick: toggleTheme, text: isDark ? 'Dark' : 'Light', icon: isDark ? <DarkModeIcon /> : <LightModeIcon /> },
+    {link: '/', linkType: 'local', text: dictionary.navigation.home, icon: <HomeIcon /> },
+    {link: '/about', linkType: 'local', text: dictionary.navigation.about, icon: <AboutIcon /> },
+    {onClick: handleLangChange, text: dictionary.navigation.language, icon: <LanguageIcon /> },
+    {onClick: toggleTheme, text: isDark ? dictionary.navigation.theme.dark : dictionary.navigation.theme.light, icon: isDark ? <DarkModeIcon /> : <LightModeIcon /> },
   ]
 
   const rightItems: TNavItem[] = [
-    {link: 'mailto:sunnyastria@gmail.com', linkType: 'local', text: 'Email', icon: <GmailIcon /> },
+    {link: 'mailto:sunnyastria@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
     {link: 'https://t.me/sunnyastria', linkType: 'out', text: 'Telegram', icon: <TGIcon /> },
     {link: 'https://career.habr.com/sunnyastria1234', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
   ]
@@ -66,7 +71,7 @@ const Header = () => {
             ))}
           </ul>
           <LogoIcon />
-          <ul className="flex gap w-1/3">
+          <ul className="flex gap justify-end w-1/3">
             {rightItems.map((item) => (
               <NavItem
                 key={item.text}

@@ -1,0 +1,11 @@
+{
+  "navigation": {
+    "home": "Home",
+    "about": "About me",
+    "language": "Eng",
+    "theme": {
+      "dark": "Dark",
+      "light": "Light"
+    }
+  }
+}

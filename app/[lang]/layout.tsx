@@ -1,18 +1,21 @@
 import Header from "@/components/layout/Header/inex";
+import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
+import { useLocale } from "@/utils/providers/locale-provider";
 
 export async function generateStaticParams() {
   return [{ lang: 'en' }, { lang: 'ru' }]
 }
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
-
+  params,
+}: LayoutProps<'/[lang]'>) {
+  const { lang } = await params
+  const dictionary = await getDictionary(lang as Locale)
+  
   return (
     <>
-      <Header />
+      <Header dictionary={dictionary} />
       {children}
     </>
       
