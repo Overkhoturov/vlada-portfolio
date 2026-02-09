@@ -48,6 +48,7 @@ module.exports = {
         },
         secondary: {
           400: '#2A81F2',
+          fixed: '#2A81F2',
           opacity: {
             4: 'rgba(52,91,251,0.04)',
             8: 'rgba(52,91,251,0.08)',

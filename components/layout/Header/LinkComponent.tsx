@@ -8,16 +8,13 @@ interface LinkComponentProps extends PropsWithChildren<Required<Pick<TNavItem, '
 
 const LinkComponent: FC<LinkComponentProps> = 
   ({children, linkType, link, lang}) => {
-    // Add language prefix to local links
     const getLocalLink = () => {
       if (!link) return '#';
       
-      // If link already starts with a language, use as-is
       if (link.startsWith('/en/') || link.startsWith('/ru/') || link === '/en' || link === '/ru') {
         return link;
       }
       
-      // Add language prefix
       const normalizedLink = link.startsWith('/') ? link : `/${link}`;
       return lang ? `/${lang}${normalizedLink}` : normalizedLink;
     };

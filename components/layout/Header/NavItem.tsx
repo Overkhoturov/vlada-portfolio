@@ -1,7 +1,8 @@
 import Button from "@/components/Button";
-import { useParams } from "next/navigation";
-import { FC, ReactNode } from "react";
+import { useParams, usePathname } from "next/navigation";
+import { FC, ReactNode, useMemo } from "react";
 import LinkComponent from "./LinkComponent";
+import classNames from "classnames";
 
 export type TNavItem = {
   text: string;
@@ -9,19 +10,61 @@ export type TNavItem = {
   link?: string;
   linkType?: 'out' | 'local';
   onClick?: () => void;
+  exactMatch?: boolean;
 }
 
-const NavItem: FC<TNavItem> = ({icon, text, link, linkType, onClick}) => {
+const NavItem: FC<TNavItem> = ({icon, text, link, linkType, onClick, exactMatch = true}) => {
   const params = useParams();
-  const currentLang = params.lang as string || 'ru'; 
+  const pathname = usePathname();
+  const currentLang = params.lang as string || 'ru';
+  
+  const isActive = useMemo(() => {
+    if (!link || linkType !== 'local') return false;
+    
+    const cleanLink = link === '/' ? '' : link.replace(/\/$/, '');
+    const cleanPathname = pathname.replace(/\/$/, '');
+    
+    const fullLinkPath = `/${currentLang}${cleanLink}`;
+    
+    if (exactMatch) {
+      return cleanPathname === fullLinkPath || 
+             (cleanLink === '' && cleanPathname === `/${currentLang}`);
+    } else {
+      return cleanPathname === fullLinkPath || 
+             cleanPathname.startsWith(`${fullLinkPath}/`) ||
+             (cleanLink === '' && cleanPathname.startsWith(`/${currentLang}/`));
+    }
+  }, [link, linkType, pathname, currentLang, exactMatch]);
+
   return (
     <li>
       {link && linkType ? (
         <LinkComponent lang={currentLang} link={link} linkType={linkType}>
-          <Button className="whitespace-nowrap" variant="ghost" type="secondary" text={text} icon={icon} size='lg' />
+          <Button
+            className={classNames({
+              "whitespace-nowrap": true,
+              "text-secondary-fixed": isActive
+            })}
+            variant="ghost"
+            type="secondary"
+            text={text}
+            icon={icon}
+            size='lg'
+          />
         </LinkComponent>
       ) : (
-        <Button className="whitespace-nowrap" variant="ghost" type="secondary" text={text} icon={icon} size='lg' onClick={onClick} />
+        <Button
+          className={classNames({
+            "whitespace-nowrap": true,
+            "text-secondary-fixed": isActive
+          })}
+          variant="ghost"
+          type="secondary"
+          text={text}
+          icon={icon}
+          size='lg'
+          onClick={onClick}
+        />
       )}
     </li>
   )

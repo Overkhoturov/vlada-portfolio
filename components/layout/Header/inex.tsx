@@ -19,13 +19,14 @@ import classNames from "classnames";
 import { usePathname, useRouter } from "next/navigation";
 import { DictionaryType } from "@/utils/i18n/dictionaries";
 import { Dialog, DialogPanel } from "@headlessui/react";
-// import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
 
 type Props = {
   dictionary: DictionaryType;
 }
 
 const Header: FC<Props> = ({ dictionary }) => {
+  const { isTablet } = useBreakpoint();
   const {toggleTheme, isDark} = useContext(ThemeContext);
   const router = useRouter();
   const pathname = usePathname();
@@ -65,48 +66,49 @@ const Header: FC<Props> = ({ dictionary }) => {
     <BasicContainer className="sticky top-0 z-50">
       <StyledHeader className="p-8">
         <nav className={classNames({
-          "px-8 py-4 rounded-3xl bg-primary-200 flex justify-between items-center": true,
+          "px-8 py-4 rounded-3xl bg-primary-200 grid grid-cols-2 tablet:grid-cols-[1fr_auto_1fr] justify-between items-center": true,
           "text-primary-700 bg-primary-200 shadow-drop-800-medium": !isDark,
           "text-primary-100 bg-primary-700 shadow-inner-100-small": isDark
         })}>
-          {/* Desktop Navigation - Left Items */}
-          <ul className="hidden lg:flex gap-4 w-1/3">
+          <ul className="hidden tablet:flex gap-4 ">
             {leftItems.map((item) => (
               <NavItem
-                key={item.text}
                 {...item}
+                key={item.text}
+                text={!isTablet ? item.text : ''}
               />
             ))}
           </ul>
 
-          {/* Logo */}
-          <div className="flex items-center justify-center flex-1 lg:flex-none">
+          <div className="flex items-center justify-end tablet:justify-center">
             <LogoIcon />
           </div>
 
-          {/* Desktop Navigation - Right Items */}
-          <ul className="hidden lg:flex gap-4 justify-end w-1/3">
+          <ul className="hidden tablet:flex gap-4 justify-end ">
             {rightItems.map((item) => (
               <NavItem
-                key={item.text}
                 {...item}
+                key={item.text}
+                text={!isTablet ? item.text : ''}
               />
             ))}
           </ul>
 
-          {/* Mobile Menu Button */}
-          <button
-            type="button"
-            className="lg:hidden p-2 rounded-lg z-50 hover:bg-primary-300 dark:hover:bg-primary-600 transition-colors"
-            onClick={() => setMobileMenuOpen(prev => !prev)}
-            aria-label="Open menu"
-          >
-            {mobileMenuOpen ? (
-              <CrossIcon />
-            ) : (
-              <BurgerIcon />
-            )}
-          </button>
+          <div className="flex tablet:hidden justify-end tablet:justify-center">
+
+            <button
+              type="button"
+              className="p-2 rounded-lg z-50 hover:bg-primary-300 dark:hover:bg-primary-600 transition-colors"
+              onClick={() => setMobileMenuOpen(prev => !prev)}
+              aria-label="Open menu"
+            >
+              {mobileMenuOpen ? (
+                <CrossIcon />
+              ) : (
+                <BurgerIcon />
+              )}
+            </button>
+          </div>
         </nav>
 
         <Dialog
@@ -114,7 +116,7 @@ const Header: FC<Props> = ({ dictionary }) => {
           open={mobileMenuOpen}
           onClose={setMobileMenuOpen}
           transition
-          className="lg:hidden fixed inset-0 flex w-screen items-center justify-center bg-black/30 transition duration-300 ease-out data-closed:opacity-0"
+          className="tablet:hidden fixed inset-0 flex w-screen items-center justify-center bg-black/30 transition duration-300 ease-out data-closed:opacity-0"
         >
           <DialogPanel className={classNames({
             "min-h-full w-full pt-[120px]": true,
@@ -144,29 +146,6 @@ const Header: FC<Props> = ({ dictionary }) => {
                       key={item.text}
                       {...item}
                     />
-                    {/* {item.link ? (
-                      <a
-                        href={item.link}
-                        target={item.linkType === 'out' ? '_blank' : '_self'}
-                        rel={item.linkType === 'out' ? 'noopener noreferrer' : undefined}
-                        className="flex items-center gap-4 p-3 rounded-lg hover:bg-primary-300 dark:hover:bg-primary-600 transition-colors"
-                        // onClick={() => setMobileMenuOpen(false)}
-                      >
-                        <span className="flex-shrink-0">{item.icon}</span>
-                        <span className="font-medium">{item.text}</span>
-                      </a>
-                    ) : item.onClick ? (
-                      <button
-                        onClick={() => {
-                          item.onClick?.();
-                          // setMobileMenuOpen(false);
-                        }}
-                        className="flex items-center gap-4 p-3 rounded-lg hover:bg-primary-300 dark:hover:bg-primary-600 transition-colors w-full text-left"
-                      >
-                        <span className="flex-shrink-0">{item.icon}</span>
-                        <span className="font-medium">{item.text}</span>
-                      </button>
-                    ) : null} */}
                   </div>
                 ))}
               </div>
