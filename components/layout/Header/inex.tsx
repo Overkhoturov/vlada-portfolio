@@ -55,9 +55,9 @@ const Header: FC<Props> = ({ dictionary }) => {
   ]
 
   const rightItems: TNavItem[] = [
-    {link: 'mailto:sunnyastria@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
+    {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
     {link: 'https://t.me/sunnyastria', linkType: 'out', text: 'Telegram', icon: <TGIcon /> },
-    {link: 'https://career.habr.com/sunnyastria1234', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
+    {link: 'https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
   ]
 
   const allItems = [...leftItems, ...rightItems];
