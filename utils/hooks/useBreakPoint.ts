@@ -18,7 +18,6 @@ export const useBreakpoint = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsClient(true);
     
     const updateBreakpoint = () => {

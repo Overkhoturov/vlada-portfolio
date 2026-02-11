@@ -43,7 +43,7 @@ const NavItem: FC<TNavItem> = ({icon, text, link, linkType, onClick, exactMatch 
           <Button
             className={classNames({
               "whitespace-nowrap": true,
-              "text-secondary-fixed": isActive
+              "text-secondary-on-fixed": isActive
             })}
             variant="ghost"
             type="secondary"
@@ -56,7 +56,7 @@ const NavItem: FC<TNavItem> = ({icon, text, link, linkType, onClick, exactMatch 
         <Button
           className={classNames({
             "whitespace-nowrap": true,
-            "text-secondary-fixed": isActive
+            "text-secondary-on-fixed": isActive
           })}
           variant="ghost"
           type="secondary"

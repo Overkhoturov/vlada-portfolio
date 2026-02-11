@@ -23,13 +23,13 @@ export default async function RootLayout({
   return (
     <html lang="ru">
       <LocaleProvider >
-        <ThemeProvider>
           <body
             className={`${robotoSans.variable} antialiased`}
           >
-            {children}
+            <ThemeProvider>
+              {children}
+            </ThemeProvider>
           </body>
-        </ThemeProvider>
       </LocaleProvider>
     </html>
   );

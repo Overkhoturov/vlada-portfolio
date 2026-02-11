@@ -66,9 +66,9 @@ const Header: FC<Props> = ({ dictionary }) => {
     <BasicContainer className="sticky top-0 z-50">
       <StyledHeader className="p-8">
         <nav className={classNames({
-          "px-8 py-4 rounded-3xl bg-primary-200 grid grid-cols-2 tablet:grid-cols-[1fr_auto_1fr] justify-between items-center": true,
-          "text-primary-700 bg-primary-200 shadow-drop-800-medium": !isDark,
-          "text-primary-100 bg-primary-700 shadow-inner-100-small": isDark
+          "px-8 py-4 rounded-3xl bg-primary-200 grid grid-cols-2 tablet:grid-cols-[1fr_auto_1fr] justify-between items-center bg-surface-bright text-primary": true,
+          "shadow-drop-800-medium": !isDark,
+          "shadow-inner-100-small": isDark
         })}>
           <ul className="hidden tablet:flex gap-4 ">
             {leftItems.map((item) => (

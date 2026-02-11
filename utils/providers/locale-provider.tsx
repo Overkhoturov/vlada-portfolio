@@ -66,7 +66,6 @@ export function LocaleProvider({ children }: LocaleProviderProps) {
     };
 
     const detectedLocale = detectLocale() as Locale;
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setLocale(detectedLocale);
     setIsLoading(false);
     
