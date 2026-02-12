@@ -7,6 +7,8 @@ import GmailIcon from "@/components/icons/Gmail";
 import TGIcon from "@/components/icons/Telegram";
 import HHIcon from "@/components/icons/HH";
 import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
+import LinkComponent from "@/components/layout/Header/LinkComponent";
+import { useParams } from "next/navigation";
 
   const rightItems: TNavItem[] = [
     {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
@@ -15,18 +17,22 @@ import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
   ]
 
 const HeaderBlock = () => {
-  const { isLowerTablet } = useBreakpoint();
+  const { isMobileStrict } = useBreakpoint();
+    const params = useParams();
+    const currentLang = params.lang as string || 'ru';
   
   return (
     <div className="flex items-center justify-between mb-4">
-      <Button text="На главную" icon={<BackIcon />} variant="ghost" type="secondary" size="lg" />
+      <LinkComponent lang={currentLang} link={'/'} linkType='local'>
+        <Button text="На главную" icon={<BackIcon />} variant="ghost" type="secondary" size="lg" />
+      </LinkComponent>
 
       <ul className="flex items-center">
         {rightItems.map((item) => (
           <NavItem
             {...item}
             key={item.text}
-            text={!isLowerTablet ? item.text : ''}
+            text={!isMobileStrict ? item.text : ''}
           />
         ))}
       </ul>

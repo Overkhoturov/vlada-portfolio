@@ -68,18 +68,21 @@ export const useBreakpoint = () => {
     isClient,
     
     isMobile: breakpoint === 'mobile',
-    isMobileStrict: isClient && windowWidth < 700,
-    isMobileInclusive: isClient && windowWidth <= 699,
+    isMobileStrict: isClient && windowWidth < breakpointValues.tablet,
+    isMobileInclusive: isClient && windowWidth <= breakpointValues.tablet - 1,
     isMobileViewport: isClient && windowWidth < 768,
     isPhone: isClient && windowWidth < 480,
-    isLargePhone: isClient && windowWidth >= 480 && windowWidth < 700,
+    isLargePhone: isClient && windowWidth >= 480 && windowWidth < breakpointValues.tablet,
     
     isTablet: breakpoint === 'tablet',
-    isTabletViewport: isClient && windowWidth >= 700 && windowWidth < 1200,
-    isLowerTablet: isClient && windowWidth < 1200,
+    isTabletViewport: isClient && windowWidth >= breakpointValues.tablet && windowWidth < breakpointValues.hd,
+    isLowerTablet: isClient && windowWidth < breakpointValues.hd,
     
-    isDesktop: isClient && windowWidth >= 1200,
-    isDesktopStrict: isClient && windowWidth >= 1200,
+    isDesktop: isClient && windowWidth >= breakpointValues.hd,
+    // isLowerHd: isClient && windowWidth < breakpointValues.hd,
+    isLowerFullHd: isClient && windowWidth < breakpointValues['full-hd'],
+    isLower2k: isClient && windowWidth < breakpointValues['2k'],
+    isLower4k: isClient && windowWidth < breakpointValues['4k'],
     
     isSmallScreen: breakpoint === 'mobile' || breakpoint === 'tablet',
     isMediumOrLarger: breakpoint !== 'mobile',
