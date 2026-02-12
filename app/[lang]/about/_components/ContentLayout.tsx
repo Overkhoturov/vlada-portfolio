@@ -7,9 +7,8 @@ import EducationBlock from "../_components/EducationBlock";
 import CourseBlock from "../_components/CourseBlock";
 
 const ContentLayout = () => {
-  const { isMobileStrict, isLowerTablet, isLowerFullHd, isLower2k } = useBreakpoint();
+  const { isMobileStrict, isLowerTablet, isLowerFullHd } = useBreakpoint();
   
-  // mobile
   if (isMobileStrict) {
     return (
       <div>
@@ -72,14 +71,6 @@ const ContentLayout = () => {
       </div>
     )
   }
-
-
-
-
-
-  return (
-    'rqwer'
-  )
 }
 
 export default ContentLayout;
