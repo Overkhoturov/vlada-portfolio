@@ -7,6 +7,7 @@ import { BasicContainer } from "@/components/layout/Container";
 import ListsBlock from "./_components/ListsBlock";
 import EducationBlock from "./_components/EducationBlock";
 import CourseBlock from "./_components/CourseBlock";
+import ContentLayout from "./_components/ContentLayout";
 
 export default async function Page({ params }: PageProps<'/[lang]'>) {
   const { lang } = await params
@@ -16,13 +17,7 @@ export default async function Page({ params }: PageProps<'/[lang]'>) {
     <ContentContainer>
       <BasicContainer>
         <HeaderBlock />
-        <div>
-          <AboutBlock />
-          <PortraitBlock />
-          <ListsBlock />
-          <EducationBlock />
-          <CourseBlock />
-        </div>
+        <ContentLayout />
       </BasicContainer>
     </ContentContainer>
   );

@@ -17,7 +17,7 @@ const EducationBlock = () => {
   return (
     <section className="text-primary mb-4">
       <h1 className="text-headline-extra-small-strong mb-4">Образование</h1>
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col tablet:flex-row hd:flex-col full-hd:flex-row gap-2">
         {educationCards.map((card, index) => (
           <CourseCard key={index} {...card} />
         ))}

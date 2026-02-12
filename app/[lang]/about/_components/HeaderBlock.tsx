@@ -15,7 +15,7 @@ import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
   ]
 
 const HeaderBlock = () => {
-  const { isLowerTablet } = useBreakpoint();
+  const { isMobileStrict } = useBreakpoint();
   
   return (
     <div className="flex items-center justify-between mb-4">
@@ -26,7 +26,7 @@ const HeaderBlock = () => {
           <NavItem
             {...item}
             key={item.text}
-            text={!isLowerTablet ? item.text : ''}
+            text={!isMobileStrict ? item.text : ''}
           />
         ))}
       </ul>
