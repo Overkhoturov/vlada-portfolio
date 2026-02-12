@@ -1,10 +1,9 @@
-// app/[lang]/error.tsx
 'use client'
 
-import { useEffect } from 'react'
-import Link from 'next/link'
-import { useParams, usePathname } from 'next/navigation'
-import { useLocale } from '@/utils/providers/locale-provider'
+// import { useEffect } from 'react'
+// import Link from 'next/link'
+// import { useParams, usePathname } from 'next/navigation'
+// import { useLocale } from '@/utils/providers/locale-provider'
 
 export default function Notfound() {
   return (

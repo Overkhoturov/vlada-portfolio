@@ -1,4 +1,4 @@
-import { FC, HTMLProps, ReactNode, useContext } from "react";
+import { FC, HTMLProps, ReactNode } from "react";
 import { StyledButton } from "./index.style";
 import classNames from "classnames";
 
