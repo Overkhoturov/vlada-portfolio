@@ -13,7 +13,6 @@ import HHIcon from "@/components/icons/HH";
 import CrossIcon from "@/components/icons/Cross";
 import BurgerIcon from "@/components/icons/Burger";
 import { BasicContainer } from "../Container";
-import { StyledHeader } from "./index.styles";
 import NavItem, { TNavItem } from "./NavItem";
 import classNames from "classnames";
 import { usePathname, useRouter } from "next/navigation";

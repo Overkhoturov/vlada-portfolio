@@ -8,7 +8,7 @@ const validLanguages = ['en', 'ru'];
 
 interface LayoutProps {
   children: React.ReactNode;
-  params: { lang: string };
+  params: Promise<{ lang: string }>;
 }
 
 export default async function RootLayout({
