@@ -18,7 +18,6 @@ export const useBreakpoint = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return;
     
-    // eslint-disable-next-line react-hooks/set-state-in-effect
     setIsClient(true);
     
     const updateBreakpoint = () => {
@@ -77,6 +76,7 @@ export const useBreakpoint = () => {
     
     isTablet: breakpoint === 'tablet',
     isTabletViewport: isClient && windowWidth >= 700 && windowWidth < 1200,
+    isLowerTablet: isClient && windowWidth < 1200,
     
     isDesktop: isClient && windowWidth >= 1200,
     isDesktopStrict: isClient && windowWidth >= 1200,

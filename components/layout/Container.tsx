@@ -1,7 +1,11 @@
-'use client'
-import styled from "styled-components";
+import classNames from "classnames";
+import { FC, PropsWithChildren, HTMLProps } from "react";
 
-export const BasicContainer = styled.div`
-  max-width: 1920px;
-  margin: 0 auto;
-`
+export const BasicContainer: FC<PropsWithChildren<HTMLProps<HTMLDivElement>>> = ({children, ...rest}) => (
+  <div {...rest} className={classNames({
+    "my-0 mx-auto": true,
+    [rest.className ?? '']: true,
+  }) }>
+    {children}
+  </div>
+)

@@ -3,6 +3,7 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react'
 import { match } from '@formatjs/intl-localematcher'
 import { Locale } from '../i18n/dictionaries'
+import { usePathname } from 'next/navigation'
 
 interface LocaleContextType {
   locale: Locale
@@ -18,14 +19,15 @@ interface LocaleProviderProps {
 
 export function LocaleProvider({ children }: LocaleProviderProps) {
   const [locale, setLocale] = useState<Locale>('en') // Default
-  const [isLoading, setIsLoading] = useState(true)
+  const [isLoading, setIsLoading] = useState(true);
+  const pathName = usePathname();
 
   useEffect(() => {
     const detectLocale = () => {
       const browserLanguages = navigator.languages || [navigator.language || 'en'];
       
       const locales = ['en', 'ru'];
-      const defaultLocale = 'en';
+      const defaultLocale = 'ru';
       
       const languages = browserLanguages.map(lang => lang.toLowerCase());
       
@@ -66,13 +68,13 @@ export function LocaleProvider({ children }: LocaleProviderProps) {
     };
 
     const detectedLocale = detectLocale() as Locale;
-    // eslint-disable-next-line react-hooks/set-state-in-effect
+    console.log('detectedLocale', detectedLocale)
     setLocale(detectedLocale);
     setIsLoading(false);
     
     document.documentElement.lang = detectedLocale;
     
-  }, []);
+  }, [pathName]);
 
   useEffect(() => {
     if (!isLoading) {
