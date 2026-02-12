@@ -64,7 +64,7 @@ const Header: FC<Props> = ({ dictionary }) => {
 
   return (
     <BasicContainer className="sticky top-0 z-50">
-      <StyledHeader className="p-8">
+      <header className="p-4 tablet:p-8">
         <nav className={classNames({
           "px-8 py-4 rounded-3xl bg-primary-200 grid grid-cols-2 tablet:grid-cols-[1fr_auto_1fr] justify-between items-center bg-surface-bright text-primary": true,
           "shadow-drop-800-medium": !isDark,
@@ -151,7 +151,7 @@ const Header: FC<Props> = ({ dictionary }) => {
               </div>
             </DialogPanel>
         </Dialog>
-      </StyledHeader>
+      </header>
     </BasicContainer>
   )
 }

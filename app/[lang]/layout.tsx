@@ -1,16 +1,27 @@
+// app/[lang]/layout.tsx
 import BackgroundBanner from "@/components/layout/BackgroundBanner";
 import Header from "@/components/layout/Header/inex";
 import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
+import { notFound } from "next/navigation";
 
-export async function generateStaticParams() {
-  return [{ lang: 'en' }, { lang: 'ru' }]
+const validLanguages = ['en', 'ru'];
+
+interface LayoutProps {
+  children: React.ReactNode;
+  params: { lang: string };
 }
 
 export default async function RootLayout({
   children,
   params,
-}: LayoutProps<'/[lang]'>) {
+}: LayoutProps) {
   const { lang } = await params
+
+  // Validate language
+  if (!lang || !validLanguages.includes(lang)) {
+    notFound();
+  }
+
   const dictionary = await getDictionary(lang as Locale)
   
   return (

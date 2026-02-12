@@ -19,8 +19,8 @@ const BackgroundBanner: FC<PropsWithChildren> = ({ children }) => {
     <div className="flex items-center justify-center">
       <Image
         width={100}
-        height={100}
-        className="absolute left-0 top-0 overflow-hidden w-full"
+        height={320}
+        className="absolute left-0 top-0 overflow-hidden w-full h-80"
         src={src}
         alt="bg"
       />
