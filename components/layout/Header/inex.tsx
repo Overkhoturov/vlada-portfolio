@@ -63,9 +63,9 @@ const Header: FC<Props> = ({ dictionary }) => {
 
   return (
     <BasicContainer isHeader className="sticky top-0 z-50">
-      <header className="p-4 tablet:p-8">
+      <header className="p-4 tablet:p-8 relative">
         <nav className={classNames({
-          "px-8 py-4 rounded-3xl bg-primary-200 grid grid-cols-2 tablet:grid-cols-[1fr_auto_1fr] justify-between items-center bg-surface-bright text-primary": true,
+          "px-8 py-4 rounded-3xl bg-primary-200 flex flex-row-reverse tablet:flex-row justify-between items-center bg-surface-bright text-primary": true,
           "shadow-drop-800-medium": !isDark,
           "shadow-inner-100-small": isDark
         })}>
@@ -79,7 +79,7 @@ const Header: FC<Props> = ({ dictionary }) => {
             ))}
           </ul>
 
-          <div className="flex items-center justify-end tablet:justify-center">
+          <div className="flex items-center justify-end tablet:justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <LogoIcon />
           </div>
 
