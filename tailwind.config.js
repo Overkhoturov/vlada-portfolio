@@ -22,7 +22,7 @@ module.exports = {
         'headline-large-strong': ['2.625rem', { lineHeight: '3.125rem', letterSpacing: '0%', fontWeight: '600' }],
         'headline-medium-strong': ['2.25rem', { lineHeight: '2.75rem', letterSpacing: '0%', fontWeight: '600' }],
         'headline-small-strong': ['1.75rem', { lineHeight: '2.25rem', letterSpacing: '0%', fontWeight: '600' }],
-        'headline-extra-small-strong': ['1.5rem', { lineHeight: '2rem', letterSpacing: '0%', fontWeight: '500' }],
+        'headline-extra-small-strong': ['1.125rem', { lineHeight: '1.625rem', letterSpacing: '0%', fontWeight: '500' }],
         
         'display-medium-strong': ['2rem', { lineHeight: '2.5rem', letterSpacing: '0%', fontWeight: '500' }],
         'display-small-strong': ['1.375rem', { lineHeight: '2.25px', letterSpacing: '0%', fontWeight: '500' }],
@@ -93,6 +93,7 @@ module.exports = {
           'inverse-fixed': 'var(--surface-inverse-fixed)',
           bright: 'var(--surface-bright)',
           container: 'var(--surface-container)',
+          'container-fixed': 'var(--surface-container-fixed)',
           'container-low': 'var(--surface-container-low)',
           dim: 'var(--surface-dim)',
           variant: 'var(--surface-variant)',

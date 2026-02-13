@@ -15,21 +15,30 @@ import BurgerIcon from "@/components/icons/Burger";
 import { BasicContainer } from "../Container";
 import NavItem, { TNavItem } from "./NavItem";
 import classNames from "classnames";
-import { usePathname, useRouter } from "next/navigation";
+import { useParams, usePathname, useRouter } from "next/navigation";
 import { DictionaryType } from "@/utils/i18n/dictionaries";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
+import LinkComponent from "./LinkComponent";
 
 type Props = {
   dictionary: DictionaryType;
 }
+
+const rightItems: TNavItem[] = [
+  {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
+  {link: 'https://t.me/sunnyastria', linkType: 'out', text: 'Telegram', icon: <TGIcon /> },
+  {link: 'https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
+]
 
 const Header: FC<Props> = ({ dictionary }) => {
   const { isTablet } = useBreakpoint();
   const {toggleTheme, isDark} = useContext(ThemeContext);
   const router = useRouter();
   const pathname = usePathname();
+  const params = useParams();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const currentLang = params.lang as string || 'ru';
 
   const handleLangChange = () => {
     const currentPath = pathname;
@@ -53,11 +62,6 @@ const Header: FC<Props> = ({ dictionary }) => {
     {onClick: toggleTheme, text: isDark ? dictionary.navigation.theme.dark : dictionary.navigation.theme.light, icon: isDark ? <DarkModeIcon /> : <LightModeIcon /> },
   ]
 
-  const rightItems: TNavItem[] = [
-    {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
-    {link: 'https://t.me/sunnyastria', linkType: 'out', text: 'Telegram', icon: <TGIcon /> },
-    {link: 'https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
-  ]
 
   const allItems = [...leftItems, ...rightItems];
 
@@ -80,7 +84,9 @@ const Header: FC<Props> = ({ dictionary }) => {
           </ul>
 
           <div className="flex items-center justify-end tablet:justify-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-            <LogoIcon />
+            <LinkComponent link="/" linkType="local" lang={currentLang}>
+              <LogoIcon />
+            </LinkComponent>
           </div>
 
           <ul className="hidden tablet:flex gap-4 justify-end ">

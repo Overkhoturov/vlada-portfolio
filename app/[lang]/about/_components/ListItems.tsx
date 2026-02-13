@@ -9,10 +9,10 @@ const ListItems: FC<Props> = ({ title, items }) => {
 
   return (
     <div className="text-primary text-body-medium">
-      <h2 className="pl-6 text-body-medium-strong">{title}</h2>
+      <h2 className="pl-6 text-headline-extra-small-strong">{title}</h2>
       <ul className="pl-3 marker:content-['•'] list-disc">
         {items.map((item, index) => (
-          <li className="pl-3" key={index}>{item}</li>
+          <li className="pl-3 text-body-medium" key={index}>{item}</li>
         ))}
       </ul>
     </div>

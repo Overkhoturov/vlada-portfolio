@@ -1,15 +1,22 @@
-const AboutBlock = () => (
+import { DictionaryType } from "@/utils/i18n/dictionaries";
+import { FC } from "react";
+
+type Props = {
+  dictionary: DictionaryType;
+}
+
+const AboutBlock:FC<Props> = ({dictionary}) => (
   <article className="text-primary mb-4">
-    <h1 className="text-headline-small-strong mb-4">Обо мне</h1>
+    <h1 className="text-headline-small-strong mb-4">{dictionary.about.main.title}</h1>
     <div className="whitespace-pre-line text-body-medium flex flex-col gap-2">
       <p>
-        Я <span className="text-body-medium-strong text-secondary-on-fixed">UX/UI-дизайнер</span>, имею опыт работы в студиях и продуктовых командах. Работаю с мобильными и веб-продуктами для массовой аудитории, e-commerce, B2C и B2B-сервисов.
+        {dictionary.about.main.p1.i}<span className="text-body-medium-strong text-secondary-on-fixed">{dictionary.about.main.p1.strong}</span>{dictionary.about.main.p1.rest}
       </p>
       <p>
-        Участвую в полном цикле работы над продуктами: от предпроектной аналитики, формирования гипотез и проектирования пользовательских сценариев — до UI-дизайна, дизайн-ревью и сопровождения реализации. Умею работать как в режиме запуска продуктов с нуля, так и в поддержке существующих решений.
+        {dictionary.about.main.p2}
       </p>
       <p>
-        Изучаю психологию, чтобы лучше понимать пользователей и применять это в UX-исследованиях.
+        {dictionary.about.main.p3}
       </p>
     </div>
   </article>

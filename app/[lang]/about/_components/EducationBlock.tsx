@@ -1,6 +1,12 @@
-import CourseCard from "./EducationCard";
+import { FC } from "react";
+import { DictionaryType } from "@/utils/i18n/dictionaries";
+import CourseCard from "./CourseCard";
 
-const EducationBlock = () => {
+type Props = {
+  dictionary: DictionaryType;
+}
+
+const EducationBlock: FC<Props> = () => {
   const educationCards = [
     {
       title: 'Южный Федеральный Университет',

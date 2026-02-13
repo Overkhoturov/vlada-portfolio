@@ -1,5 +1,7 @@
 'use client'
 
+import { FC } from "react";
+import { DictionaryType } from "@/utils/i18n/dictionaries";
 import Button from "@/components/Button"
 import BackIcon from "@/components/icons/Back";
 import NavItem, { TNavItem } from "@/components/layout/Header/NavItem";
@@ -10,19 +12,25 @@ import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
 import LinkComponent from "@/components/layout/Header/LinkComponent";
 import { useParams } from "next/navigation";
 
-  const rightItems: TNavItem[] = [
-    {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
-    {link: 'https://t.me/sunnyastria', linkType: 'out', text: 'Telegram', icon: <TGIcon /> },
-    {link: 'https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
-  ]
+const rightItems: TNavItem[] = [
+  {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
+  {link: 'https://t.me/sunnyastria', linkType: 'out', text: 'Telegram', icon: <TGIcon /> },
+  {link: 'https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
+]
 
-const HeaderBlock = () => {
+
+type Props = {
+  dictionary: DictionaryType;
+}
+
+
+const HeaderBlock: FC<Props> = () => {
   const { isMobileStrict } = useBreakpoint();
     const params = useParams();
     const currentLang = params.lang as string || 'ru';
   
   return (
-    <div className="flex items-center justify-between mb-4">
+    <div className="flex items-center justify-between mb-8 full-hd:mb-12 2k:mb-[60px] 4k:mb-[72px]">
       <LinkComponent lang={currentLang} link={'/'} linkType='local'>
         <Button text="На главную" icon={<BackIcon />} variant="ghost" type="secondary" size="lg" />
       </LinkComponent>

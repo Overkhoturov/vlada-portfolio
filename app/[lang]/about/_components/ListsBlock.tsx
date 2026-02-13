@@ -1,6 +1,12 @@
+import { FC } from "react";
+import { DictionaryType } from "@/utils/i18n/dictionaries";
 import ListItems from "./ListItems"
 
-const ListsBlock = () => {
+type Props = {
+  dictionary: DictionaryType;
+}
+
+const ListsBlock: FC<Props> = () => {
   const lists = [
     {
       title: 'Проектирование интерфейсов',
@@ -35,7 +41,7 @@ const ListsBlock = () => {
   ]
   
   return (
-    <section className="flex flex-col gap-4 mb-4">
+    <section className="flex flex-col gap-4 hd:gap-8 2k:gap-10 4k:gap-12 mb-4">
       {lists.map((list, index) => (
         <ListItems {...list} key={index} />
       ))}   

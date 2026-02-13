@@ -1,6 +1,12 @@
-import CourseCard from "./EducationCard";
+import { FC } from "react";
+import { DictionaryType } from "@/utils/i18n/dictionaries";
+import CourseCard from "./CourseCard";
 
-const CourseBlock = () => {
+type Props = {
+  dictionary: DictionaryType;
+}
+
+const CourseBlock: FC<Props> = () => {
   const educationCards = [
     {
       title: 'Продуктовый подход для дизайнеров',

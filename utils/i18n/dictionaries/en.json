@@ -7,5 +7,20 @@
       "dark": "Dark",
       "light": "Light"
     }
+  },
+  "footer": {
+    "rightsReserved": "All rights reserved."
+  },
+  "about": {
+    "main": {
+      "title": "About me",
+      "p1": {
+        "i": "I'm a ",
+        "strong": "UX/UI designer ",
+        "rest": "with experience working in design studios and product teams. I work on mobile and web products for mass audiences, e-commerce, B2C and B2B services."
+      },
+      "p2": "I participate in the full product development cycle — from pre-project analytics, hypothesis generation, and user journey mapping — to UI design, design reviews, and implementation support. I'm comfortable working both on products built from scratch and on supporting existing solutions.",
+      "p3": "I study psychology to better understand users and apply this knowledge in UX research."
+    }
   }
 }
