@@ -1,5 +1,6 @@
 // app/[lang]/layout.tsx
 import BackgroundBanner from "@/components/layout/BackgroundBanner";
+import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header/inex";
 import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
 import { notFound } from "next/navigation";
@@ -29,6 +30,7 @@ export default async function RootLayout({
       <Header dictionary={dictionary} />
       <BackgroundBanner />
       {children}
+      <Footer dictionary={dictionary} />
     </>
   );
 }

@@ -5,18 +5,24 @@ import PortraitBlock from "../_components/PortraitBlock";
 import ListsBlock from "../_components/ListsBlock";
 import EducationBlock from "../_components/EducationBlock";
 import CourseBlock from "../_components/CourseBlock";
+import { FC } from "react";
+import { DictionaryType } from "@/utils/i18n/dictionaries";
 
-const ContentLayout = () => {
+type Props = {
+  dictionary: DictionaryType;
+}
+
+const ContentLayout: FC<Props> = ({ dictionary }) => {
   const { isMobileStrict, isLowerTablet, isLowerFullHd } = useBreakpoint();
   
   if (isMobileStrict) {
     return (
       <div>
-        <AboutBlock/>
-        <PortraitBlock />
-        <ListsBlock />
-        <EducationBlock />
-        <CourseBlock />
+        <AboutBlock dictionary={dictionary} />
+        <PortraitBlock dictionary={dictionary}  />
+        <ListsBlock dictionary={dictionary}  />
+        <EducationBlock dictionary={dictionary}  />
+        <CourseBlock dictionary={dictionary}  />
       </div>
     )
   } else if (isLowerTablet) {
@@ -24,16 +30,16 @@ const ContentLayout = () => {
       <div>
         <div className="flex gap-8 mb-4">
           <div className="w-1/2">
-            <AboutBlock/>
-            <ListsBlock />
+            <AboutBlock dictionary={dictionary} />
+            <ListsBlock dictionary={dictionary} />
           </div>
           <div className="w-1/2">
-            <PortraitBlock />
-            <CourseBlock />
+            <PortraitBlock dictionary={dictionary}  />
+            <CourseBlock dictionary={dictionary}  />
           </div>
         </div>
 
-        <EducationBlock />
+        <EducationBlock dictionary={dictionary}  />
       </div>
     )
   }else if (isLowerFullHd) {
@@ -41,16 +47,16 @@ const ContentLayout = () => {
       <div>
         <div className="flex gap-8 mb-4">
           <div className="w-1/2">
-            <AboutBlock/>
-            <ListsBlock />
+            <AboutBlock dictionary={dictionary} />
+            <ListsBlock dictionary={dictionary}  />
           </div>
           <div className="w-1/2">
-            <PortraitBlock />
-            <EducationBlock />
+            <PortraitBlock dictionary={dictionary}  />
+            <EducationBlock dictionary={dictionary}  />
           </div>
         </div>
 
-        <CourseBlock />
+        <CourseBlock dictionary={dictionary} />
       </div>
     )
   } else {
@@ -58,16 +64,16 @@ const ContentLayout = () => {
       <div>
         <div className="flex gap-8 mb-4">
           <div className="w-1/2">
-            <AboutBlock/>
-            <ListsBlock />
+            <AboutBlock dictionary={dictionary} />
+            <ListsBlock dictionary={dictionary}  />
           </div>
           <div className="w-1/2">
-            <PortraitBlock />
+            <PortraitBlock dictionary={dictionary}  />
           </div>
         </div>
 
-        <EducationBlock />
-        <CourseBlock />
+        <EducationBlock dictionary={dictionary}  />
+        <CourseBlock dictionary={dictionary}  />
       </div>
     )
   }
