@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header/inex";
 import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
 import { DictionaryProvider } from "@/utils/providers/dictionary-context";
 import { notFound } from "next/navigation";
+import HeaderBlock from "./_components/HeaderBlock";
 
 const validLanguages = ["en", "ru"];
 
@@ -24,7 +25,6 @@ export default async function RootLayout({ children, params }: LayoutProps) {
   return (
     <DictionaryProvider dictionary={dictionary}>
       <Header />
-      <BackgroundBanner />
       {children}
       <Footer />
     </DictionaryProvider>

@@ -1,7 +1,6 @@
 "use client";
 import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
 import { ThemeContext } from "@/utils/providers/theme-provider";
-import Image from "next/image";
 import { FC, PropsWithChildren, useContext, useMemo } from "react";
 
 const BackgroundBanner: FC<PropsWithChildren> = ({ children }) => {
@@ -20,15 +19,16 @@ const BackgroundBanner: FC<PropsWithChildren> = ({ children }) => {
   }, [isLowerTablet, isDark]);
 
   return (
-    <div className="flex items-center justify-center">
-      <Image
-        width={100}
-        height={320}
-        className="absolute left-0 top-0 overflow-hidden w-full h-80"
-        src={src}
-        alt="bg"
+    <div
+      className="absolute left-0 top-0 w-full h-[388px] tablet:h-[470px] hd:h-[720px] full-hd:h-[1080px] 2k:h-[1440px] 4k:h-[2160px] flex items-center justify-center"
+    >
+      <div className="z-10">
+        {children}
+      </div>
+      <div
+        style={{ backgroundImage: `url('${src}')` }}
+        className="absolute w-full h-full full-hd:top-[-400px] 2k:top-[-600px] 4k:top-[-800px] bg-[50%] bg-cover bg-no-repeat"
       />
-      {children}
     </div>
   );
 };
