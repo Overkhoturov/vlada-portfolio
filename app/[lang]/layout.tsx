@@ -1,8 +1,8 @@
-// app/[lang]/layout.tsx
 import BackgroundBanner from "@/components/layout/BackgroundBanner";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header/inex";
 import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
+import { DictionaryProvider } from "@/utils/providers/dictionary-context";
 import { notFound } from "next/navigation";
 
 const validLanguages = ['en', 'ru'];
@@ -18,7 +18,6 @@ export default async function RootLayout({
 }: LayoutProps) {
   const { lang } = await params
 
-  // Validate language
   if (!lang || !validLanguages.includes(lang)) {
     notFound();
   }
@@ -26,11 +25,11 @@ export default async function RootLayout({
   const dictionary = await getDictionary(lang as Locale)
   
   return (
-    <>
-      <Header dictionary={dictionary} />
+    <DictionaryProvider dictionary={dictionary}>
+      <Header />
       <BackgroundBanner />
       {children}
-      <Footer dictionary={dictionary} />
-    </>
+      <Footer />
+    </DictionaryProvider>
   );
 }

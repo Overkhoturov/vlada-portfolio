@@ -1,31 +1,16 @@
-import { FC } from "react";
-import { DictionaryType } from "@/utils/i18n/dictionaries";
+import { useDictionary } from "@/utils/providers/dictionary-context";
 import CourseCard from "./CourseCard";
 
-type Props = {
-  dictionary: DictionaryType;
-}
-
-const EducationBlock: FC<Props> = () => {
-  const educationCards = [
-    {
-      title: 'Южный Федеральный Университет',
-      subTitle: 'Информационные системы и технологии (инженер-программист)',
-      grade: '2020 · Бакалавр',
-    },
-    {
-      title: 'Южный Федеральный Университет',
-      subTitle: 'Информационные системы и технологии (инженер-программист)',
-      grade: '2020 · Бакалавр',
-    },
-  ]
+const EducationBlock = () => {
+  const dictionary = useDictionary();
 
   return (
     <section className="text-primary mb-4">
-      <h1 className="text-headline-extra-small-strong mb-4">Образование</h1>
+      <h1 className="text-headline-extra-small-strong mb-4">{dictionary.about.educationTitle}</h1>
       <div className="flex flex-col tablet:flex-row hd:flex-col full-hd:flex-row gap-2">
-        {educationCards.map((card, index) => (
-          <CourseCard key={index} {...card} />
+
+        {Object.values(dictionary.about.education).map((card, index) => (
+          <CourseCard key={index} title={card.title} subitle={card.subtitle} grade={card.grade} />
         ))}
       </div>
     </section>
