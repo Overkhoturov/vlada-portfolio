@@ -21,6 +21,82 @@
       },
       "p2": "I participate in the full product development cycle — from pre-project analytics, hypothesis generation, and user journey mapping — to UI design, design reviews, and implementation support. I'm comfortable working both on products built from scratch and on supporting existing solutions.",
       "p3": "I study psychology to better understand users and apply this knowledge in UX research."
+    },
+    "lists": {
+      "list1": {
+        "title": "Interface Design",
+        "items": [
+          "mobile applications (iOS/Android)",
+          "web services, corporate, e-commerce and career sites",
+          "admin panels and internal services",
+          "design systems (development, maintenance, local UI kits)",
+          "UX audits, project evaluations"
+        ]
+      },
+      "list2": {
+        "title": "Additional Skills",
+        "items": [
+          "infographic creation",
+          "UX editing and interface copywriting",
+          "Knowledge of HTML and CSS, using DevTools",
+          "Creating storytelling and scenarios for screens",
+          "Arguing and presenting solutions to the team and client",
+          "Working in a fast-paced environment with uncertainty and parallel tasks"
+        ]
+      },
+      "list3": {
+        "title": "Tools",
+        "items": [
+          "Figma (Auto Layout, Variants, Component Properties, plugins)",
+          "Adobe Illustrator",
+          "Adobe Photoshop",
+          "Neural networks for process optimization"
+        ]
+      }
+    },
+    "courseTitle": "Courses",
+    "educationTitle": "Education",
+    "courses": {
+      "course1": {
+        "title": "Product Approach for Designers",
+        "subtitle": "Yandex Practicum",
+        "grade": "2024"
+      },
+      "course2": {
+        "title": "Web Development",
+        "subtitle": "HTML Academy",
+        "grade": "2022"
+      },
+      "course3": {
+        "title": "HTML and CSS",
+        "subtitle": "HTML Academy",
+        "grade": "2024"
+      },
+      "course4": {
+        "title": "Graphic Design",
+        "subtitle": "GetCourse Online Platform",
+        "grade": "2020"
+      }
+    },
+
+    "education": {
+      "course1": {
+        "title": "Southern Federal University",
+        "subtitle": "Information Systems and Technologies (Software Engineer)",
+        "grade": "2020 · Bachelor's Degree"
+      },
+      "course2": {
+        "title": "Southern Federal University",
+        "subtitle": "Ergodesign of User Interface (UX/UI Designer)",
+        "grade": "2022 · Master's Degree"
+      }
+    },
+    "portraitBlock": {
+      "greeting": "Hi, I'm Vlada",
+      "tag": "love memes"
+    },
+    "headerBlock": {
+      "backbutton": "To home"
     }
   }
 }

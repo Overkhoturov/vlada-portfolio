@@ -1,7 +1,7 @@
 'use client'
 import AboutIcon from "@/components/icons/About";
 import HomeIcon from "@/components/icons/Home";
-import { FC, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import { ThemeContext } from "@/utils/providers/theme-provider";
 import LanguageIcon from "@/components/icons/Language";
 import DarkModeIcon from "@/components/icons/DarkMode";
@@ -16,14 +16,11 @@ import { BasicContainer } from "../Container";
 import NavItem, { TNavItem } from "./NavItem";
 import classNames from "classnames";
 import { useParams, usePathname, useRouter } from "next/navigation";
-import { DictionaryType } from "@/utils/i18n/dictionaries";
 import { Dialog, DialogPanel } from "@headlessui/react";
 import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
 import LinkComponent from "./LinkComponent";
+import { useDictionary } from "@/utils/providers/dictionary-context";
 
-type Props = {
-  dictionary: DictionaryType;
-}
 
 const rightItems: TNavItem[] = [
   {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
@@ -31,7 +28,7 @@ const rightItems: TNavItem[] = [
   {link: 'https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
 ]
 
-const Header: FC<Props> = ({ dictionary }) => {
+const Header = () => {
   const { isTablet } = useBreakpoint();
   const {toggleTheme, isDark} = useContext(ThemeContext);
   const router = useRouter();
@@ -39,6 +36,7 @@ const Header: FC<Props> = ({ dictionary }) => {
   const params = useParams();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const currentLang = params.lang as string || 'ru';
+  const dictionary = useDictionary();
 
   const handleLangChange = () => {
     const currentPath = pathname;
