@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const StyledPortfolioCard = styled.div`
-  border: 1px solid #DFDEDE;
-  
+  border: 1px solid #dfdede;
+
   // .portfolio-img {
   //   background-image: url(/portfolio/pixual.png);
   //   background-size: contain;
@@ -13,6 +13,4 @@ export const StyledPortfolioCard = styled.div`
   &:hover {
     border: 1px solid var(--foreground);
   }
-
-
-`
+`;

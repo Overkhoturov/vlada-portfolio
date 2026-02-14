@@ -8,31 +8,42 @@ export type TNavItem = {
   text: string;
   icon: ReactNode;
   link?: string;
-  linkType?: 'out' | 'local';
+  linkType?: "out" | "local";
   onClick?: () => void;
   exactMatch?: boolean;
-}
+};
 
-const NavItem: FC<TNavItem> = ({icon, text, link, linkType, onClick, exactMatch = true}) => {
+const NavItem: FC<TNavItem> = ({
+  icon,
+  text,
+  link,
+  linkType,
+  onClick,
+  exactMatch = true,
+}) => {
   const params = useParams();
   const pathname = usePathname();
-  const currentLang = params.lang as string || 'ru';
-  
+  const currentLang = (params.lang as string) || "ru";
+
   const isActive = useMemo(() => {
-    if (!link || linkType !== 'local') return false;
-    
-    const cleanLink = link === '/' ? '' : link.replace(/\/$/, '');
-    const cleanPathname = pathname.replace(/\/$/, '');
-    
+    if (!link || linkType !== "local") return false;
+
+    const cleanLink = link === "/" ? "" : link.replace(/\/$/, "");
+    const cleanPathname = pathname.replace(/\/$/, "");
+
     const fullLinkPath = `/${currentLang}${cleanLink}`;
-    
+
     if (exactMatch) {
-      return cleanPathname === fullLinkPath || 
-             (cleanLink === '' && cleanPathname === `/${currentLang}`);
+      return (
+        cleanPathname === fullLinkPath ||
+        (cleanLink === "" && cleanPathname === `/${currentLang}`)
+      );
     } else {
-      return cleanPathname === fullLinkPath || 
-             cleanPathname.startsWith(`${fullLinkPath}/`) ||
-             (cleanLink === '' && cleanPathname.startsWith(`/${currentLang}/`));
+      return (
+        cleanPathname === fullLinkPath ||
+        cleanPathname.startsWith(`${fullLinkPath}/`) ||
+        (cleanLink === "" && cleanPathname.startsWith(`/${currentLang}/`))
+      );
     }
   }, [link, linkType, pathname, currentLang, exactMatch]);
 
@@ -43,31 +54,31 @@ const NavItem: FC<TNavItem> = ({icon, text, link, linkType, onClick, exactMatch 
           <Button
             className={classNames({
               "whitespace-nowrap": true,
-              "text-secondary-on-fixed": isActive
+              "text-secondary-on-fixed": isActive,
             })}
             variant="ghost"
             type="secondary"
             text={text}
             icon={icon}
-            size='lg'
+            size="lg"
           />
         </LinkComponent>
       ) : (
         <Button
           className={classNames({
             "whitespace-nowrap": true,
-            "text-secondary-on-fixed": isActive
+            "text-secondary-on-fixed": isActive,
           })}
           variant="ghost"
           type="secondary"
           text={text}
           icon={icon}
-          size='lg'
+          size="lg"
           onClick={onClick}
         />
       )}
     </li>
-  )
-}
+  );
+};
 
 export default NavItem;

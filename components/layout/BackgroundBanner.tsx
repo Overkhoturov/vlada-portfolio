@@ -1,19 +1,23 @@
-'use client'
+"use client";
 import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
 import { ThemeContext } from "@/utils/providers/theme-provider";
 import Image from "next/image";
 import { FC, PropsWithChildren, useContext, useMemo } from "react";
 
 const BackgroundBanner: FC<PropsWithChildren> = ({ children }) => {
-  const {isDark} = useContext(ThemeContext);
-  const {isLowerTablet} = useBreakpoint();
+  const { isDark } = useContext(ThemeContext);
+  const { isLowerTablet } = useBreakpoint();
 
   const src = useMemo(() => {
     if (isDark) {
-      return isLowerTablet ? '/background/dark-tablet.png' : '/background/dark.png'
+      return isLowerTablet
+        ? "/background/dark-tablet.png"
+        : "/background/dark.png";
     }
-    return isLowerTablet ? '/background/light-tablet.png' : '/background/light.png'
-  }, [isLowerTablet, isDark])
+    return isLowerTablet
+      ? "/background/light-tablet.png"
+      : "/background/light.png";
+  }, [isLowerTablet, isDark]);
 
   return (
     <div className="flex items-center justify-center">
@@ -26,7 +30,7 @@ const BackgroundBanner: FC<PropsWithChildren> = ({ children }) => {
       />
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default BackgroundBanner;

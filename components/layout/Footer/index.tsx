@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import LogoIcon from "@/components/icons/Logo";
 import GmailIcon from "@/components/icons/Gmail";
 import TGIcon from "@/components/icons/Telegram";
@@ -9,14 +9,29 @@ import { useParams } from "next/navigation";
 import { useDictionary } from "@/utils/providers/dictionary-context";
 
 const rightItems: TNavItem[] = [
-  {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: '', icon: <GmailIcon /> },
-  {link: 'https://t.me/sunnyastria', linkType: 'out', text: '', icon: <TGIcon /> },
-  {link: 'https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078', linkType: 'out', text: '', icon: <HHIcon /> },
-]
+  {
+    link: "mailto:sunny.prys@gmail.com",
+    linkType: "out",
+    text: "",
+    icon: <GmailIcon />,
+  },
+  {
+    link: "https://t.me/sunnyastria",
+    linkType: "out",
+    text: "",
+    icon: <TGIcon />,
+  },
+  {
+    link: "https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078",
+    linkType: "out",
+    text: "",
+    icon: <HHIcon />,
+  },
+];
 
 const Footer = () => {
   const params = useParams();
-  const currentLang = params.lang as string || 'ru';
+  const currentLang = (params.lang as string) || "ru";
   const currentYear = new Date().getFullYear();
   const dictionary = useDictionary();
 
@@ -27,16 +42,14 @@ const Footer = () => {
       </LinkComponent>
       <ul className="flex tablet:hidden gap-4 justify-end ">
         {rightItems.map((item) => (
-          <NavItem
-            {...item}
-            key={item.link}
-            text={item.text}
-          />
+          <NavItem {...item} key={item.link} text={item.text} />
         ))}
       </ul>
-      <span className="text-body-medium-strong">© {currentYear}. {dictionary.footer.rightsReserved}</span>
+      <span className="text-body-medium-strong">
+        © {currentYear}. {dictionary.footer.rightsReserved}
+      </span>
     </footer>
-  )
-}
+  );
+};
 
 export default Footer;

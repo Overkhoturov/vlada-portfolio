@@ -6,15 +6,21 @@ const EducationBlock = () => {
 
   return (
     <section className="text-primary mb-4">
-      <h1 className="text-headline-extra-small-strong mb-4">{dictionary.about.educationTitle}</h1>
+      <h1 className="text-headline-extra-small-strong mb-4">
+        {dictionary.about.educationTitle}
+      </h1>
       <div className="flex flex-col tablet:flex-row hd:flex-col full-hd:flex-row gap-2">
-
         {Object.values(dictionary.about.education).map((card, index) => (
-          <CourseCard key={index} title={card.title} subitle={card.subtitle} grade={card.grade} />
+          <CourseCard
+            key={index}
+            title={card.title}
+            subitle={card.subtitle}
+            grade={card.grade}
+          />
         ))}
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default EducationBlock;

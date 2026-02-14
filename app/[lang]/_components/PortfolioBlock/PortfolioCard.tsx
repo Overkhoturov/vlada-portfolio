@@ -9,9 +9,9 @@ type Props = {
   img: string;
   mainTags: string[];
   additionalTags: string[];
-}
+};
 
-const PortfolioCard:FC<Props> = (props) => {
+const PortfolioCard: FC<Props> = (props) => {
   const [isOver, setOver] = useState(false);
   const [isFlipped, setIsFlipped] = useState(false);
 
@@ -28,10 +28,10 @@ const PortfolioCard:FC<Props> = (props) => {
       style={{
         perspective: "1000px",
         height: "auto",
-        minHeight: "320px"
+        minHeight: "320px",
       }}
     >
-      <div 
+      <div
         className="relative w-full h-full transition-transform duration-500 ease-in-out"
         style={{
           transformStyle: "preserve-3d",
@@ -42,15 +42,15 @@ const PortfolioCard:FC<Props> = (props) => {
           className="w-full h-full flex flex-col 2xl:flex-row items-center gap-4 lg:gap-8"
           style={{
             backfaceVisibility: "hidden",
-            transform: "rotateY(0deg)"
+            transform: "rotateY(0deg)",
           }}
         >
           <div className="relative w-full max-w-[364px] max-h-64 overflow-hidden rounded-xl">
             <Image
               className={classNames({
-                'porfolio-img w-full h-full object-cover transition duration-300 ease-in-out': true,
-                'scale-110': isOver && !isFlipped,
-                'scale-100': !isOver || isFlipped,
+                "porfolio-img w-full h-full object-cover transition duration-300 ease-in-out": true,
+                "scale-110": isOver && !isFlipped,
+                "scale-100": !isOver || isFlipped,
               })}
               src={props.img}
               alt="project-cover"
@@ -59,7 +59,9 @@ const PortfolioCard:FC<Props> = (props) => {
             />
           </div>
           <div className="max-w-[364px] w-full">
-            <h3 className="font-medium text-[32px] leading-10 mb-3">{props.title}</h3>
+            <h3 className="font-medium text-[32px] leading-10 mb-3">
+              {props.title}
+            </h3>
 
             <div className="flex flex-wrap items-center gap-3 mb-[58px]">
               {props.mainTags.map((tag, index) => (
@@ -96,6 +98,6 @@ const PortfolioCard:FC<Props> = (props) => {
       </div>
     </StyledPortfolioCard>
   );
-}
+};
 
 export default PortfolioCard;

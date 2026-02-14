@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
 import AboutBlock from "../_components/AboutBlock";
 import PortraitBlock from "../_components/PortraitBlock";
@@ -18,7 +18,7 @@ const ContentLayout = () => {
         <EducationBlock />
         <CourseBlock />
       </div>
-    )
+    );
   } else if (isLowerTablet) {
     return (
       <div>
@@ -29,14 +29,14 @@ const ContentLayout = () => {
           </div>
           <div className="w-1/2">
             <PortraitBlock />
-            <CourseBlock  />
+            <CourseBlock />
           </div>
         </div>
 
-        <EducationBlock  />
+        <EducationBlock />
       </div>
-    )
-  }else if (isLowerFullHd) {
+    );
+  } else if (isLowerFullHd) {
     return (
       <div>
         <div className="flex gap-8 mb-4">
@@ -52,25 +52,25 @@ const ContentLayout = () => {
 
         <CourseBlock />
       </div>
-    )
+    );
   } else {
     return (
       <div>
         <div className="flex gap-8 mb-4">
           <div className="w-1/2">
             <AboutBlock />
-            <ListsBlock  />
+            <ListsBlock />
           </div>
           <div className="w-1/2">
-            <PortraitBlock  />
+            <PortraitBlock />
           </div>
         </div>
 
-        <EducationBlock  />
-        <CourseBlock  />
+        <EducationBlock />
+        <CourseBlock />
       </div>
-    )
+    );
   }
-}
+};
 
 export default ContentLayout;

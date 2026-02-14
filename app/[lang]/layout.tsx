@@ -5,25 +5,22 @@ import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
 import { DictionaryProvider } from "@/utils/providers/dictionary-context";
 import { notFound } from "next/navigation";
 
-const validLanguages = ['en', 'ru'];
+const validLanguages = ["en", "ru"];
 
 interface LayoutProps {
   children: React.ReactNode;
   params: Promise<{ lang: string }>;
 }
 
-export default async function RootLayout({
-  children,
-  params,
-}: LayoutProps) {
-  const { lang } = await params
+export default async function RootLayout({ children, params }: LayoutProps) {
+  const { lang } = await params;
 
   if (!lang || !validLanguages.includes(lang)) {
     notFound();
   }
 
-  const dictionary = await getDictionary(lang as Locale)
-  
+  const dictionary = await getDictionary(lang as Locale);
+
   return (
     <DictionaryProvider dictionary={dictionary}>
       <Header />

@@ -4,7 +4,6 @@ import { BasicContainer } from "@/components/layout/Container";
 import ContentLayout from "./_components/ContentLayout";
 
 export default function Page() {
-
   return (
     <ContentContainer>
       <BasicContainer>

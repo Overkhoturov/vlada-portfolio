@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import AboutIcon from "@/components/icons/About";
 import HomeIcon from "@/components/icons/Home";
 import { useContext, useState } from "react";
@@ -21,62 +21,97 @@ import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
 import LinkComponent from "./LinkComponent";
 import { useDictionary } from "@/utils/providers/dictionary-context";
 
-
 const rightItems: TNavItem[] = [
-  {link: 'mailto:sunny.prys@gmail.com', linkType: 'out', text: 'Email', icon: <GmailIcon /> },
-  {link: 'https://t.me/sunnyastria', linkType: 'out', text: 'Telegram', icon: <TGIcon /> },
-  {link: 'https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078', linkType: 'out', text: 'HeadHunter', icon: <HHIcon /> },
-]
+  {
+    link: "mailto:sunny.prys@gmail.com",
+    linkType: "out",
+    text: "Email",
+    icon: <GmailIcon />,
+  },
+  {
+    link: "https://t.me/sunnyastria",
+    linkType: "out",
+    text: "Telegram",
+    icon: <TGIcon />,
+  },
+  {
+    link: "https://taganrog.hh.ru/resume/3e8e86f1ff0855dd2f0039ed1f30537a515078",
+    linkType: "out",
+    text: "HeadHunter",
+    icon: <HHIcon />,
+  },
+];
 
 const Header = () => {
   const { isTablet } = useBreakpoint();
-  const {toggleTheme, isDark} = useContext(ThemeContext);
+  const { toggleTheme, isDark } = useContext(ThemeContext);
   const router = useRouter();
   const pathname = usePathname();
   const params = useParams();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const currentLang = params.lang as string || 'ru';
+  const currentLang = (params.lang as string) || "ru";
   const dictionary = useDictionary();
 
   const handleLangChange = () => {
     const currentPath = pathname;
-    
-    if (currentPath.startsWith('/en')) {
-      const newPath = currentPath.replace(/^\/en/, '/ru');
+
+    if (currentPath.startsWith("/en")) {
+      const newPath = currentPath.replace(/^\/en/, "/ru");
       router.push(newPath);
-    } else if (currentPath.startsWith('/ru')) {
-      const newPath = currentPath.replace(/^\/ru/, '/en');
+    } else if (currentPath.startsWith("/ru")) {
+      const newPath = currentPath.replace(/^\/ru/, "/en");
       router.push(newPath);
     } else {
-      router.push(`/en${currentPath === '/' ? '' : currentPath}`);
+      router.push(`/en${currentPath === "/" ? "" : currentPath}`);
     }
     setMobileMenuOpen(false);
-  }
+  };
 
   const leftItems: TNavItem[] = [
-    {link: '/', linkType: 'local', text: dictionary.navigation.home, icon: <HomeIcon /> },
-    {link: '/about', linkType: 'local', text: dictionary.navigation.about, icon: <AboutIcon /> },
-    {onClick: handleLangChange, text: dictionary.navigation.language, icon: <LanguageIcon /> },
-    {onClick: toggleTheme, text: isDark ? dictionary.navigation.theme.dark : dictionary.navigation.theme.light, icon: isDark ? <DarkModeIcon /> : <LightModeIcon /> },
-  ]
-
+    {
+      link: "/",
+      linkType: "local",
+      text: dictionary.navigation.home,
+      icon: <HomeIcon />,
+    },
+    {
+      link: "/about",
+      linkType: "local",
+      text: dictionary.navigation.about,
+      icon: <AboutIcon />,
+    },
+    {
+      onClick: handleLangChange,
+      text: dictionary.navigation.language,
+      icon: <LanguageIcon />,
+    },
+    {
+      onClick: toggleTheme,
+      text: isDark
+        ? dictionary.navigation.theme.dark
+        : dictionary.navigation.theme.light,
+      icon: isDark ? <DarkModeIcon /> : <LightModeIcon />,
+    },
+  ];
 
   const allItems = [...leftItems, ...rightItems];
 
   return (
     <BasicContainer isHeader className="sticky top-0 z-50">
       <header className="p-4 tablet:p-8 relative">
-        <nav className={classNames({
-          "px-8 py-4 rounded-3xl bg-primary-200 flex flex-row-reverse tablet:flex-row justify-between items-center bg-surface-bright text-primary": true,
-          "shadow-drop-800-medium": !isDark,
-          "shadow-inner-100-small": isDark
-        })}>
+        <nav
+          className={classNames({
+            "px-8 py-4 rounded-3xl bg-primary-200 flex flex-row-reverse tablet:flex-row justify-between items-center bg-surface-bright text-primary": true,
+            "shadow-drop-800-medium": !isDark,
+            "shadow-inner-100-small": isDark,
+          })}
+        >
           <ul className="hidden tablet:flex gap-4 ">
             {leftItems.map((item) => (
               <NavItem
                 {...item}
                 key={item.text}
-                text={!isTablet ? item.text : ''}
+                text={!isTablet ? item.text : ""}
               />
             ))}
           </ul>
@@ -92,24 +127,19 @@ const Header = () => {
               <NavItem
                 {...item}
                 key={item.text}
-                text={!isTablet ? item.text : ''}
+                text={!isTablet ? item.text : ""}
               />
             ))}
           </ul>
 
           <div className="flex tablet:hidden justify-end tablet:justify-center">
-
             <button
               type="button"
               className="p-2 rounded-lg z-50 hover:bg-primary-300 dark:hover:bg-primary-600 transition-colors"
-              onClick={() => setMobileMenuOpen(prev => !prev)}
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label="Open menu"
             >
-              {mobileMenuOpen ? (
-                <CrossIcon />
-              ) : (
-                <BurgerIcon />
-              )}
+              {mobileMenuOpen ? <CrossIcon /> : <BurgerIcon />}
             </button>
           </div>
         </nav>
@@ -121,12 +151,14 @@ const Header = () => {
           transition
           className="tablet:hidden fixed inset-0 flex w-screen items-center justify-center bg-black/30 transition duration-300 ease-out data-closed:opacity-0"
         >
-          <DialogPanel className={classNames({
-            "min-h-full w-full pt-[120px]": true,
-            "bg-primary-200 text-primary-700": !isDark,
-            "bg-primary-700 text-primary-100": isDark
-          })}>
-              {/* <div className="flex items-center justify-between mb-8">
+          <DialogPanel
+            className={classNames({
+              "min-h-full w-full pt-[120px]": true,
+              "bg-primary-200 text-primary-700": !isDark,
+              "bg-primary-700 text-primary-100": isDark,
+            })}
+          >
+            {/* <div className="flex items-center justify-between mb-8">
                 <LogoIcon />
                 <button
                   type="button"
@@ -138,25 +170,22 @@ const Header = () => {
                 </button>
               </div> */}
 
-              <div className="space-y-6">
-                {allItems.map((item) => (
-                  <div
-                    key={item.text}
-                    className="border-b border-primary-300 dark:border-primary-600 pb-6 last:border-0 last:pb-0"
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    <NavItem
-                      key={item.text}
-                      {...item}
-                    />
-                  </div>
-                ))}
-              </div>
-            </DialogPanel>
+            <div className="space-y-6">
+              {allItems.map((item) => (
+                <div
+                  key={item.text}
+                  className="border-b border-primary-300 dark:border-primary-600 pb-6 last:border-0 last:pb-0"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <NavItem key={item.text} {...item} />
+                </div>
+              ))}
+            </div>
+          </DialogPanel>
         </Dialog>
       </header>
     </BasicContainer>
-  )
-}
+  );
+};
 
 export default Header;

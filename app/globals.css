@@ -3,57 +3,57 @@
 @tailwind utilities;
 
 :root {
-  --primary-opacity-4: #01080C0A;
-  --primary-opacity-8: #01080C14;
-  --primary-opacity-12: #01080C1F;
-  --primary-opacity-16: #01080C29;
-  --primary-opacity-24: #01080C3D;
-  --primary-opacity-32: #01080C52;
-  
-  --primary-opacity-variant-4: #FFFFFF0A;
-  --primary-opacity-variant-8: #FFFFFF14;
-  --primary-opacity-variant-12: #FFFFFF1F;
-  --primary-opacity-variant-16: #FFFFFF29;
-  --primary-opacity-variant-24: #FFFFFF3D;
-  --primary-opacity-variant-32: #FFFFFF52;
+  --primary-opacity-4: #01080c0a;
+  --primary-opacity-8: #01080c14;
+  --primary-opacity-12: #01080c1f;
+  --primary-opacity-16: #01080c29;
+  --primary-opacity-24: #01080c3d;
+  --primary-opacity-32: #01080c52;
 
-  --secondary-fixed-opacity-4: #2A81F20A;
-  --secondary-fixed-opacity-8: #2A81F214;
-  --secondary-fixed-opacity-12: #2A81F21F;
-  --secondary-fixed-opacity-16: #2A81F229;
-  --secondary-fixed-opacity-24: #2A81F23D;
-  --secondary-fixed-opacity-32: #2A81F252;
+  --primary-opacity-variant-4: #ffffff0a;
+  --primary-opacity-variant-8: #ffffff14;
+  --primary-opacity-variant-12: #ffffff1f;
+  --primary-opacity-variant-16: #ffffff29;
+  --primary-opacity-variant-24: #ffffff3d;
+  --primary-opacity-variant-32: #ffffff52;
 
-  --outline: #F7F8FC;
-  --outline-variant: #EAECF1;
+  --secondary-fixed-opacity-4: #2a81f20a;
+  --secondary-fixed-opacity-8: #2a81f214;
+  --secondary-fixed-opacity-12: #2a81f21f;
+  --secondary-fixed-opacity-16: #2a81f229;
+  --secondary-fixed-opacity-24: #2a81f23d;
+  --secondary-fixed-opacity-32: #2a81f252;
+
+  --outline: #f7f8fc;
+  --outline-variant: #eaecf1;
   --outline-inverse: #122036;
   --outline-inverse-fixed: #122036;
 
   --primary: #122036;
   --primary-fixed: #122036;
-  --primary-variant: #01080C;
-  --primary-inverse: #FFFFFF;
-  --primary-inverse-fixed: #FFFFFF;
+  --primary-variant: #01080c;
+  --primary-inverse: #ffffff;
+  --primary-inverse-fixed: #ffffff;
   --primary-on: #122036;
   --primary-on-fixed: #122036;
-  --primary-on-variant: #01080C;
+  --primary-on-variant: #01080c;
 
-  --secondary-on-fixed: #2A81F2;
-  --secondary-container-fixed: #2A81F2;
-  --secondary-fixed: #2A81F2;
+  --secondary-on-fixed: #2a81f2;
+  --secondary-container-fixed: #2a81f2;
+  --secondary-fixed: #2a81f2;
 
-  --surface-inverse-fixed: #01080C;
-  --surface: #FFFFFF;
-  --surface-bright: #FFFFFF;
-  --surface-container: #FFFFFF;
-  --surface-container-fixed: #0C1625;
-  --surface-container-low: #F7F8FC;
-  --surface-dim: #E9EBF0;
-  --surface-variant: #E9EBF0;
+  --surface-inverse-fixed: #01080c;
+  --surface: #ffffff;
+  --surface-bright: #ffffff;
+  --surface-container: #ffffff;
+  --surface-container-fixed: #0c1625;
+  --surface-container-low: #f7f8fc;
+  --surface-dim: #e9ebf0;
+  --surface-variant: #e9ebf0;
 
-  --tertiary-on-fixed: #57606B;
-  --tertiary-container-fixed: #57606B;
-  --tertiary-fixed: #57606B;
+  --tertiary-on-fixed: #57606b;
+  --tertiary-container-fixed: #57606b;
+  --tertiary-fixed: #57606b;
 
   --shadow-light: rgba(255, 255, 255, 0.04);
   --shadow-dark: rgba(18, 32, 54, 0.04);
@@ -61,61 +61,64 @@
 }
 
 [data-theme="dark"] {
-  --primary-opacity-4: #FFFFFF0A;
-  --primary-opacity-8: #FFFFFF14;
-  --primary-opacity-12: #FFFFFF1F;
-  --primary-opacity-16: #FFFFFF29;
-  --primary-opacity-24: #FFFFFF3D;
-  --primary-opacity-32: #FFFFFF52;
+  --primary-opacity-4: #ffffff0a;
+  --primary-opacity-8: #ffffff14;
+  --primary-opacity-12: #ffffff1f;
+  --primary-opacity-16: #ffffff29;
+  --primary-opacity-24: #ffffff3d;
+  --primary-opacity-32: #ffffff52;
 
-  --primary-opacity-variant-4: #01080C0A;
-  --primary-opacity-variant-8: #01080C14;
-  --primary-opacity-variant-12: #01080C1F;
-  --primary-opacity-variant-16: #01080C29;
-  --primary-opacity-variant-24: #01080C3D;
-  --primary-opacity-variant-32: #01080C52;
-  
-  --secondary-fixed-opacity-4: #2A81F20A;
-  --secondary-fixed-opacity-8: #2A81F214;
-  --secondary-fixed-opacity-12: #2A81F21F;
-  --secondary-fixed-opacity-16: #2A81F229;
-  --secondary-fixed-opacity-24: #2A81F23D;
-  --secondary-fixed-opacity-32: #2A81F252;
+  --primary-opacity-variant-4: #01080c0a;
+  --primary-opacity-variant-8: #01080c14;
+  --primary-opacity-variant-12: #01080c1f;
+  --primary-opacity-variant-16: #01080c29;
+  --primary-opacity-variant-24: #01080c3d;
+  --primary-opacity-variant-32: #01080c52;
+
+  --secondary-fixed-opacity-4: #2a81f20a;
+  --secondary-fixed-opacity-8: #2a81f214;
+  --secondary-fixed-opacity-12: #2a81f21f;
+  --secondary-fixed-opacity-16: #2a81f229;
+  --secondary-fixed-opacity-24: #2a81f23d;
+  --secondary-fixed-opacity-32: #2a81f252;
 
   --outline: #122036;
-  --outline-variant: #0C1625;
-  --outline-inverse: #F7F8FC;
+  --outline-variant: #0c1625;
+  --outline-inverse: #f7f8fc;
   --outline-inverse-fixed: #122036;
 
-  --primary: #FFFFFF;
+  --primary: #ffffff;
   --primary-fixed: #122036;
-  --primary-variant: #FFFFFF;
+  --primary-variant: #ffffff;
   --primary-inverse: #122036;
-  --primary-inverse-fixed: #FFFFFF;
-  --primary-on: #FFFFFF;
+  --primary-inverse-fixed: #ffffff;
+  --primary-on: #ffffff;
   --primary-on-fixed: #122036;
-  --primary-on-variant: #FFFFFF;
+  --primary-on-variant: #ffffff;
 
-  --secondary-on-fixed: #2A81F2;
-  --secondary-container-fixed: #2A81F2;
-  --secondary-fixed: #2A81F2;
+  --secondary-on-fixed: #2a81f2;
+  --secondary-container-fixed: #2a81f2;
+  --secondary-fixed: #2a81f2;
 
-  --surface-inverse-fixed: #01080C;
-  --surface: #01080C;
+  --surface-inverse-fixed: #01080c;
+  --surface: #01080c;
   --surface-bright: #122036;
-  --surface-container: #0C1625;
-  --surface-container-fixed: #0C1625;
+  --surface-container: #0c1625;
+  --surface-container-fixed: #0c1625;
   --surface-container-low: #122036;
-  --surface-dim: #0C1625;
-  --surface-variant: #01080C;
+  --surface-dim: #0c1625;
+  --surface-variant: #01080c;
 
-  --tertiary-on-fixed: #57606B;
-  --tertiary-container-fixed: #57606B;
-  --tertiary-fixed: #57606B;
+  --tertiary-on-fixed: #57606b;
+  --tertiary-container-fixed: #57606b;
+  --tertiary-fixed: #57606b;
 }
 
 * {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease;
 }
 
 :root {
