@@ -28,12 +28,16 @@ module.exports = {
           { lineHeight: "2.75rem", letterSpacing: "0%", fontWeight: "600" },
         ],
         "headline-small-strong": [
-          "1.75rem",
-          { lineHeight: "2.25rem", letterSpacing: "0%", fontWeight: "600" },
+          "1.5rem",
+          { lineHeight: "2rem", letterSpacing: "0%", fontWeight: "500" },
         ],
         "headline-extra-small-strong": [
           "1.125rem",
           { lineHeight: "1.625rem", letterSpacing: "0%", fontWeight: "500" },
+        ],
+        "headline-extra-medium-strong": [
+          "1.75rem",
+          { lineHeight: "2.25rem", letterSpacing: "0%", fontWeight: "600" },
         ],
 
         "display-medium-strong": [

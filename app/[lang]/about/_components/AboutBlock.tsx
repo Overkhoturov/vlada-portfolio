@@ -5,7 +5,7 @@ const AboutBlock = () => {
 
   return (
     <article className="text-primary mb-4">
-      <h1 className="text-headline-small-strong mb-4">
+      <h1 className="text-headline-small-strong tablet:text-headline-extra-medium-strong mb-4">
         {dictionary.about.main.title}
       </h1>
       <div className="whitespace-pre-line text-body-medium flex flex-col gap-2">

@@ -6,7 +6,7 @@ const CourseBlock = () => {
 
   return (
     <section className="text-primary">
-      <h1 className="text-headline-extra-small-strong mb-4">
+      <h1 className="text-headline-small-strong tablet:text-headline-extra-medium-strong mb-4">
         {dictionary.about.courseTitle}
       </h1>
       <div className="flex flex-col gap-2 hd:flex-wrap hd:flex-row">
