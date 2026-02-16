@@ -16,10 +16,10 @@ import { BasicContainer } from "../Container";
 import NavItem, { TNavItem } from "./NavItem";
 import classNames from "classnames";
 import { useParams, usePathname, useRouter } from "next/navigation";
-import { Dialog, DialogPanel } from "@headlessui/react";
 import { useBreakpoint } from "@/utils/hooks/useBreakPoint";
 import LinkComponent from "./LinkComponent";
 import { useDictionary } from "@/utils/providers/dictionary-context";
+import BurgerMenu from "./BurgerMenu";
 
 const rightItems: TNavItem[] = [
   {
@@ -67,7 +67,7 @@ const Header = () => {
     setMobileMenuOpen(false);
   };
 
-  const leftItems: TNavItem[] = [
+  const innerNavigationItems: TNavItem[] = [
     {
       link: "/",
       linkType: "local",
@@ -80,6 +80,9 @@ const Header = () => {
       text: dictionary.navigation.about,
       icon: <AboutIcon />,
     },
+  ];
+
+  const controlItems: TNavItem[] = [
     {
       onClick: handleLangChange,
       text: dictionary.navigation.language,
@@ -94,7 +97,7 @@ const Header = () => {
     },
   ];
 
-  const allItems = [...leftItems, ...rightItems];
+  const leftItems = [...innerNavigationItems, ...controlItems];
 
   return (
     <BasicContainer isHeader className="sticky top-0 z-50">
@@ -104,7 +107,7 @@ const Header = () => {
             "px-8 py-4 rounded-3xl bg-primary-200 flex flex-row-reverse tablet:flex-row justify-between items-center bg-surface-bright text-primary": true,
             "shadow-drop-800-medium": !isDark,
             "shadow-inner-100-small": isDark,
-            "hidden": mobileMenuOpen,
+            hidden: mobileMenuOpen,
           })}
         >
           <ul className="hidden tablet:flex gap-4 ">
@@ -144,46 +147,13 @@ const Header = () => {
             </button>
           </div>
         </nav>
-
-        <Dialog
-          as="div"
-          open={mobileMenuOpen}
-          onClose={setMobileMenuOpen}
-          transition
-          className="z-50 tablet:hidden bg-primary-opacity-24 backdrop-blur-md fixed inset-0 flex w-screen items-end justify-center bg-white transition duration-300 ease-out data-closed:opacity-0"
-        >
-          <DialogPanel
-            className={classNames({
-              "w-full p-4": true,
-              // "bg-white text-primary-700": !isDark,
-              // "bg-black text-primary-100": isDark,
-            })}
-          >
-            {/* <div className="flex items-center justify-between mb-8">
-                <LogoIcon />
-                <button
-                  type="button"
-                  className="p-2 rounded-lg hover:bg-primary-300 dark:hover:bg-primary-600 transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                  aria-label="Close menu"
-                >
-                  <CrossIcon />
-                </button>
-              </div> */}
-
-            <div className="p-6 flex flex-col items-center gap-2 rounded-[32px] border border-outline bg-surface-container">
-              {allItems.map((item) => (
-                <div
-                  key={item.text}
-                  className="border-b border-primary-300 dark:border-primary-600 pb-6 last:border-0 last:pb-0"
-                  // onClick={() => setMobileMenuOpen(false)}
-                >
-                  <NavItem key={item.text} {...item} />
-                </div>
-              ))}
-            </div>
-          </DialogPanel>
-        </Dialog>
+        <BurgerMenu
+          setMobileMenuOpen={setMobileMenuOpen}
+          mobileMenuOpen={mobileMenuOpen}
+          rightItems={rightItems}
+          controlItems={controlItems}
+          innerNavigationItems={innerNavigationItems}
+        />
       </header>
     </BasicContainer>
   );
