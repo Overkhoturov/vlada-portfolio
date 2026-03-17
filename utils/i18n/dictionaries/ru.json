@@ -96,6 +96,12 @@
     },
     "headerBlock": {
       "backbutton": "На главную"
+    },
+    "contentMenu": {
+      "title": "Содержание",
+      "about": "Обо мне",
+      "education": "Образование",
+      "courses": "Курсы"
     }
   }
 }

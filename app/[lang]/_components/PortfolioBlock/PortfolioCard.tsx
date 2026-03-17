@@ -65,13 +65,13 @@ const PortfolioCard: FC<Props> = (props) => {
 
             <div className="flex flex-wrap items-center gap-3 mb-[58px]">
               {props.mainTags.map((tag, index) => (
-                <Tag key={index} text={tag} variant="outlined" />
+                <Tag key={index} text={tag} variant="primary" />
               ))}
             </div>
 
             <div className="flex flex-wrap items-center gap-3">
               {props.additionalTags.map((tag, index) => (
-                <Tag key={index} text={tag} />
+                <Tag key={index} text={tag} variant="secondary" />
               ))}
             </div>
           </div>

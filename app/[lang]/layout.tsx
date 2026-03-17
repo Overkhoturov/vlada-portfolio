@@ -5,6 +5,7 @@ import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
 import { DictionaryProvider } from "@/utils/providers/dictionary-context";
 import { notFound } from "next/navigation";
 import HeaderBlock from "./_components/HeaderBlock";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const validLanguages = ["en", "ru"];
 
@@ -27,6 +28,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       <Header />
       {children}
       <Footer />
+      <ScrollToTop />
     </DictionaryProvider>
   );
 }

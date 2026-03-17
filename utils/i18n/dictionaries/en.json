@@ -97,6 +97,12 @@
     },
     "headerBlock": {
       "backbutton": "To home"
+    },
+    "contentMenu": {
+      "title": "Content",
+      "about": "About me",
+      "education": "Education",
+      "courses": "Courses"
     }
   }
 }

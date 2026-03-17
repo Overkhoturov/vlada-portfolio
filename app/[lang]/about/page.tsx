@@ -3,6 +3,7 @@ import HeaderBlock from "./_components/HeaderBlock";
 import { BasicContainer } from "@/components/layout/Container";
 import ContentLayout from "./_components/ContentLayout";
 import BackgroundBanner from "@/components/layout/BackgroundBanner";
+import ContentMenu from "./_components/ContentMenu";
 
 export default function Page() {
   return (
@@ -14,6 +15,7 @@ export default function Page() {
           <ContentLayout />
         </BasicContainer>
       </ContentContainer>
+      <ContentMenu />
     </>
   );
 }

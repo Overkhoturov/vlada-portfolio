@@ -4,7 +4,7 @@ const AboutBlock = () => {
   const dictionary = useDictionary();
 
   return (
-    <article className="text-primary mb-4">
+    <article className="text-primary mb-4" id="about">
       <h1 className="text-headline-small-strong tablet:text-headline-extra-medium-strong mb-4">
         {dictionary.about.main.title}
       </h1>

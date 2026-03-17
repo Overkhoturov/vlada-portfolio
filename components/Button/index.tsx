@@ -6,7 +6,7 @@ type Props = {
   text?: string;
   icon?: ReactNode;
   variant: "outlined" | "filled" | "ghost";
-  type: "primary" | "secondary";
+  type: "primary" | "secondary" | "link";
   size: "lg" | "md";
   disabled?: boolean;
   onClick?: () => void;
@@ -28,7 +28,7 @@ const Button: FC<Props> = ({
       disabled={disabled}
       className={classNames({
         "p-4 flex gap-2 items-center justify-center rounded-2xl bg-transparent cursor-pointer transition-all duration-300 ease-out": true,
-        "bg-secondary-container-fixed text-primary-inverse-fixed hover:bg-primary-fixed active:bg-primary-fixed disabled:bg-tertiary-fixed":
+        "!bg-secondary-container-fixed text-primary-inverse-fixed hover:bg-primary-fixed active:bg-primary-fixed disabled:bg-tertiary-fixed":
           type === "primary" && variant === "filled",
 
         border: variant === "outlined",
@@ -37,10 +37,12 @@ const Button: FC<Props> = ({
 
         "text-primary hover:text-primary-on-variant active:text-primary-on-variant disabled:text-tertiary-on-fixed":
           type === "secondary" && variant === "ghost",
+        "!p-0 text-primary hover:text-primary-on-variant hover:underline active:underline active:text-primary-on-variant disabled:text-tertiary-on-fixed":
+          type === "link" && variant === "ghost",
         [className]: true,
       })}
     >
-      {icon && <div className="w-6 h-6">{icon}</div>}
+      {icon && <div className="w-6 h-6 flex justify-center items-center">{icon}</div>}
       {text && <span className="text-body-medium-strong">{text}</span>}
     </StyledButton>
   );

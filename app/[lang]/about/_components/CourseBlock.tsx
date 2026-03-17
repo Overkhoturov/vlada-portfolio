@@ -5,7 +5,7 @@ const CourseBlock = () => {
   const dictionary = useDictionary();
 
   return (
-    <section className="text-primary">
+    <section className="text-primary" id="courses">
       <h1 className="text-headline-small-strong tablet:text-headline-extra-medium-strong mb-4">
         {dictionary.about.courseTitle}
       </h1>
