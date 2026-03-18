@@ -53,7 +53,7 @@ const ScrollToTop = () => {
       size="lg"
       onClick={scrollToTop}
       className={classNames({
-        "fixed bottom-16 right-16 transition-opacity duration-300": true,
+        "fixed bottom-8 right-8 tablet:bottom-16 tablet:right-16 transition-opacity duration-300": true,
         "opacity-100": isVisible,
         "opacity-0 pointer-events-none": !isVisible,
       })}

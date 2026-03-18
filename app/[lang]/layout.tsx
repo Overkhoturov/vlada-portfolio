@@ -1,10 +1,8 @@
-import BackgroundBanner from "@/components/layout/BackgroundBanner";
 import Footer from "@/components/layout/Footer";
 import Header from "@/components/layout/Header/inex";
 import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
 import { DictionaryProvider } from "@/utils/providers/dictionary-context";
 import { notFound } from "next/navigation";
-import HeaderBlock from "./_components/HeaderBlock";
 import ScrollToTop from "@/components/ScrollToTop";
 
 const validLanguages = ["en", "ru"];
