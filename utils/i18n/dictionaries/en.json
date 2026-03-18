@@ -104,5 +104,69 @@
       "education": "Education",
       "courses": "Courses"
     }
+  },
+  "home": {
+    "header": {
+      "greetingTag": "Hi, I'm Vlada",
+      "title": "Product Designer",
+      "description": "I design complex interfaces based on user psychology and business metrics"
+    },
+    "main": {
+      "title": "Projects",
+      "cardDetailsBtn": "View Details",
+      "cards": {
+        "pixual": {
+          "title": "Pixual",
+          "mainTags": ["web application", "admin panel"],
+          "additionalTags": [
+            "content creation",
+            "character animation",
+            "image detailing",
+            "characters"
+          ]
+        },
+        "expenso": {
+          "title": "eXpenso",
+          "mainTags": ["mobile application"],
+          "additionalTags": [
+            "Fintech",
+            "Personal Finance",
+            "Utility",
+            "Financial",
+            "Redesign"
+          ]
+        },
+        "breezify": {
+          "title": "Breezify",
+          "mainTags": ["web application", "admin panel"],
+          "additionalTags": [
+            "model library",
+            "order processing",
+            "article creation",
+            "profile settings"
+          ]
+        },
+        "lettuce": {
+          "title": "Lettuce",
+          "mainTags": ["admin panel"],
+          "additionalTags": [
+            "Inventory Control",
+            "Order Processing",
+            "role assignment",
+            "security"
+          ]
+        },
+        "gts": {
+          "title": "GTS-3100",
+          "mainTags": ["Mobile application"],
+          "additionalTags": [
+            "time timer",
+            "location settings",
+            "screen brightness",
+            "mask preview"
+          ]
+        }
+      }
+    }
   }
 }

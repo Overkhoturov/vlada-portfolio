@@ -1,20 +1,25 @@
+"use client";
 import Tag from "@/components/Tag";
 import Image from "next/image";
 import { FC, useContext, useState } from "react";
-import { StyledPortfolioCard } from "./PortfolioCard.styles";
 import classNames from "classnames";
 import { ThemeContext } from "@/utils/providers/theme-provider";
+import { useDictionary } from "@/utils/providers/dictionary-context";
 
 type Props = {
-  title: string;
+  id: string;
+  figmaUrl: string;
   img: string;
-  mainTags: string[];
-  additionalTags: string[];
 };
 
 const PortfolioCard: FC<Props> = (props) => {
   const [isOver, setOver] = useState(false);
   const { isDark } = useContext(ThemeContext);
+  const dictionary = useDictionary();
+  const dictionaryCard =
+    dictionary.home.main.cards[
+      props.id as keyof typeof dictionary.home.main.cards
+    ];
 
   return (
     <div
@@ -42,18 +47,18 @@ const PortfolioCard: FC<Props> = (props) => {
         </div>
         <div className="max-w-[364px] w-full">
           <h3 className="font-medium text-[32px] leading-10 mb-3">
-            {props.title}
+            {dictionaryCard.title}
           </h3>
 
           <div className="flex flex-wrap items-center gap-3 mb-[58px]">
-            {props.mainTags.map((tag, index) => (
-              <Tag key={index} text={tag} variant="primary" />
+            {dictionaryCard.mainTags.map((tag, index) => (
+              <Tag className="lowercase" key={index} text={tag} variant="primary" />
             ))}
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
-            {props.additionalTags.map((tag, index) => (
-              <Tag key={index} text={tag} variant="secondary" />
+            {dictionaryCard.additionalTags.map((tag, index) => (
+              <Tag className="lowercase" key={index} text={tag} variant="secondary" />
             ))}
           </div>
         </div>
