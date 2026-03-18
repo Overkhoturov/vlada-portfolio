@@ -46,7 +46,7 @@ module.exports = {
         ],
         "display-small-strong": [
           "1.375rem",
-          { lineHeight: "2.25px", letterSpacing: "0%", fontWeight: "500" },
+          { lineHeight: "2.25rem", letterSpacing: "0%", fontWeight: "500" },
         ],
 
         "body-medium": [

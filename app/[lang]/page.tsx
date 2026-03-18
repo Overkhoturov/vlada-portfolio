@@ -9,7 +9,7 @@ export default function Page() {
       <BackgroundBanner>
         <HeaderBlock />
       </BackgroundBanner>
-      <ContentContainer >
+      <ContentContainer className="mt-[248px]">
         <PortfolioBlock />
       </ContentContainer>
     </>
