@@ -20,7 +20,7 @@ const ProjectSwiper: FC<Props> = ({ items }) => {
       {items.map((item, index) => (
         <SwiperSlide
           className={classNames({
-            "w-[340px]": true,
+            "w-[340px] min-h-[628px]": true,
           })}
           key={index}
         >

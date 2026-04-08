@@ -9,7 +9,20 @@
     }
   },
   "footer": {
-    "rightsReserved": "All rights reserved."
+    "rightsReserved": "All rights reserved.",
+    "withLove": "Made with ❤️ and a systematic approach.",
+    "navigation": {
+      "title": "Navigation",
+      "home": "Home",
+      "about": "About Me",
+      "cv": "Resume (PDF)"
+    },
+    "contacts": {
+      "title": "Contacts",
+      "email": "Email",
+      "tg": "Telegram",
+      "linkedin": "LinkedIn"
+    }
   },
   "about": {
     "main": {

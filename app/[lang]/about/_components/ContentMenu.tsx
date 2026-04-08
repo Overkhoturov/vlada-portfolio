@@ -1,5 +1,5 @@
 "use client";
-import Button from "@/components/Button";
+import Button, { ButtonType, ButtonVariant } from "@/components/Button";
 import { useDictionary } from "@/utils/providers/dictionary-context";
 import classNames from "classnames";
 import Link from "next/link";
@@ -94,8 +94,8 @@ const ContentMenu = () => {
                     item.id as keyof typeof dictionary.about.contentMenu
                   ]
                 }
-                variant={"ghost"}
-                type={"link"}
+                variant={ButtonVariant.GHOST}
+                type={ButtonType.LINK}
                 size="lg"
                 className={classNames({
                   "before:content-['•'] before:p-2": isActive,

@@ -5,7 +5,7 @@ import { FC, useContext, useState } from "react";
 import classNames from "classnames";
 import { ThemeContext } from "@/utils/providers/theme-provider";
 import { useDictionary } from "@/utils/providers/dictionary-context";
-import Button from "@/components/Button";
+import Button, { ButtonType, ButtonVariant } from "@/components/Button";
 import LinkComponent from "@/components/layout/Header/LinkComponent";
 
 type Props = {
@@ -27,7 +27,7 @@ const PortfolioCard: FC<Props> = (props) => {
   return (
     <div
       className={classNames({
-        "p-6 rounded-[32px] border border-outline bg-surface-container shadow-drop-800-medium": true,
+        "h-full p-6 rounded-[32px] border border-outline bg-surface-container shadow-drop-800-medium": true,
         "shadow-drop-800-medium": !isDark && !props.isHideShadow,
         "shadow-inner-100-small": isDark && !props.isHideShadow,
       })}
@@ -79,9 +79,9 @@ const PortfolioCard: FC<Props> = (props) => {
             <div className="mt-4 tablet:mt-8 2k:mt-5 4k:mt-12">
               <LinkComponent linkType="out" link={props.figmaUrl}>
                 <Button
-                  variant="filled"
+                  variant={ButtonVariant.FILLED}
                   size="lg"
-                  type="primary"
+                  type={ButtonType.PRIMARY}
                   text={dictionary.home.main.cardDetailsBtn}
                   className="w-full"
                 />

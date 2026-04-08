@@ -1,4 +1,4 @@
-import Button from "@/components/Button";
+import Button, { ButtonType, ButtonVariant } from "@/components/Button";
 import { useParams, usePathname } from "next/navigation";
 import { FC, ReactNode, useMemo } from "react";
 import LinkComponent from "./LinkComponent";
@@ -6,11 +6,13 @@ import classNames from "classnames";
 
 export type TNavItem = {
   text: string;
-  icon: ReactNode;
+  icon?: ReactNode;
   link?: string;
   linkType?: "out" | "local";
   onClick?: () => void;
   exactMatch?: boolean;
+  buttonType?: ButtonType;
+  buttonVariant?: ButtonVariant;
 };
 
 const NavItem: FC<TNavItem> = ({
@@ -20,6 +22,8 @@ const NavItem: FC<TNavItem> = ({
   linkType,
   onClick,
   exactMatch = true,
+  buttonType = ButtonType.SECONDARY,
+  buttonVariant = ButtonVariant.GHOST,
 }) => {
   const params = useParams();
   const pathname = usePathname();
@@ -56,8 +60,8 @@ const NavItem: FC<TNavItem> = ({
               "whitespace-nowrap": true,
               "text-secondary-on-fixed": isActive,
             })}
-            variant="ghost"
-            type="secondary"
+            variant={buttonVariant}
+            type={buttonType}
             text={text}
             icon={icon}
             size="lg"
@@ -69,8 +73,8 @@ const NavItem: FC<TNavItem> = ({
             "whitespace-nowrap": true,
             "text-secondary-on-fixed": isActive,
           })}
-          variant="ghost"
-          type="secondary"
+          variant={buttonVariant}
+          type={buttonType}
           text={text}
           icon={icon}
           size="lg"

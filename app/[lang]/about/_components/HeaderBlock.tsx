@@ -1,6 +1,6 @@
 "use client";
 
-import Button from "@/components/Button";
+import Button, { ButtonType, ButtonVariant } from "@/components/Button";
 import BackIcon from "@/components/icons/Back";
 import NavItem, { TNavItem } from "@/components/layout/Header/NavItem";
 import GmailIcon from "@/components/icons/Gmail";
@@ -44,8 +44,8 @@ const HeaderBlock = () => {
         <Button
           text={dictionary.about.headerBlock.backbutton}
           icon={<BackIcon />}
-          variant="ghost"
-          type="secondary"
+          variant={ButtonVariant.GHOST}
+          type={ButtonType.SECONDARY}
           size="lg"
         />
       </LinkComponent>

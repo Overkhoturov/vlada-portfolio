@@ -9,7 +9,20 @@
     }
   },
   "footer": {
-    "rightsReserved": "Все права защищены."
+    "rightsReserved": "Все права защищены.",
+    "withLove": "Сделано с ❤️ и системным подходом.",
+    "navigation": {
+      "title": "Навигация",
+      "home": "Главная",
+      "about": "Обо мне",
+      "cv": "Резюме (PDF)"
+    },
+    "contacts": {
+      "title": "Контакты",
+      "email": "Email",
+      "tg": "Telegram",
+      "linkedin": "LinkedIn"
+    }
   },
   "about": {
     "main": {

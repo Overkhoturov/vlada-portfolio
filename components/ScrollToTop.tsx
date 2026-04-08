@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-import Button from "./Button";
+import Button, { ButtonType, ButtonVariant } from "./Button";
 import ArrowUp from "./icons/ArrowUp";
 import classNames from "classnames";
 
@@ -47,8 +47,8 @@ const ScrollToTop = () => {
 
   return (
     <Button
-      variant="filled"
-      type="primary"
+      variant={ButtonVariant.FILLED}
+      type={ButtonType.PRIMARY}
       icon={<ArrowUp />}
       size="lg"
       onClick={scrollToTop}
