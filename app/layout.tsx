@@ -22,8 +22,10 @@ export default async function RootLayout({
   return (
     <html lang="ru">
       <LocaleProvider>
-        <body className={`${robotoSans.variable} antialiased`}>
-          <ThemeProvider>{children}</ThemeProvider>
+        <body className={`${robotoSans.variable}  antialiased`}>
+          <ThemeProvider>
+            <div className="min-h-[100vh]">{children}</div>
+          </ThemeProvider>
         </body>
       </LocaleProvider>
     </html>

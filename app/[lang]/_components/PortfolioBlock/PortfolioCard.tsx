@@ -5,11 +5,14 @@ import { FC, useContext, useState } from "react";
 import classNames from "classnames";
 import { ThemeContext } from "@/utils/providers/theme-provider";
 import { useDictionary } from "@/utils/providers/dictionary-context";
+import Button from "@/components/Button";
+import LinkComponent from "@/components/layout/Header/LinkComponent";
 
 type Props = {
   id: string;
   figmaUrl: string;
   img: string;
+  isHideShadow?: boolean;
 };
 
 const PortfolioCard: FC<Props> = (props) => {
@@ -25,8 +28,8 @@ const PortfolioCard: FC<Props> = (props) => {
     <div
       className={classNames({
         "p-6 rounded-[32px] border border-outline bg-surface-container shadow-drop-800-medium": true,
-        "shadow-drop-800-medium": !isDark,
-        "shadow-inner-100-small": isDark,
+        "shadow-drop-800-medium": !isDark && !props.isHideShadow,
+        "shadow-inner-100-small": isDark && !props.isHideShadow,
       })}
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
@@ -52,14 +55,36 @@ const PortfolioCard: FC<Props> = (props) => {
 
           <div className="flex flex-wrap items-center gap-3 mb-[58px]">
             {dictionaryCard.mainTags.map((tag, index) => (
-              <Tag className="lowercase" key={index} text={tag} variant="primary" />
+              <Tag
+                className="lowercase"
+                key={index}
+                text={tag}
+                variant="primary"
+              />
             ))}
           </div>
 
           <div className="flex flex-wrap items-center gap-3">
             {dictionaryCard.additionalTags.map((tag, index) => (
-              <Tag className="lowercase" key={index} text={tag} variant="secondary" />
+              <Tag
+                className="lowercase"
+                key={index}
+                text={tag}
+                variant="secondary"
+              />
             ))}
+          </div>
+
+          <div className="mt-4 tablet:mt-8 2k:mt-5 4k:mt-12">
+            <LinkComponent linkType="out" link={props.figmaUrl}>
+              <Button
+                variant="filled"
+                size="lg"
+                type="primary"
+                text={dictionary.home.main.cardDetailsBtn}
+                className="w-full"
+              />
+            </LinkComponent>
           </div>
         </div>
       </div>

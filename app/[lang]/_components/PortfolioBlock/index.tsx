@@ -1,5 +1,8 @@
+"use client";
 import { BasicContainer } from "@/components/layout/Container";
 import PortfolioCard from "./PortfolioCard";
+import ProjectSwiper from "./ProjectSwiper";
+import { useDictionary } from "@/utils/providers/dictionary-context";
 
 const cards = [
   {
@@ -35,12 +38,28 @@ const cards = [
 ];
 
 const PortfolioBlock = () => {
+  const dictionary = useDictionary();
+
   return (
-    <BasicContainer className="grid gap-8 grid-cols-1 lg:grid-cols-2 py-[88px] px-4 md:px-12 lg:px-16 xl:px-20 2xl:px-[120px]">
-      {cards.map((card) => (
-        <PortfolioCard key={card.id} {...card} />
-      ))}
-    </BasicContainer>
+    <div>
+      <h1 className="text-headline-medium-strong text-center">
+        {dictionary.home.main.title}
+      </h1>
+
+      <BasicContainer className="hidden tablet:grid gap-8 grid-cols-1 lg:grid-cols-2 py-[88px] px-4 md:px-12 lg:px-16 xl:px-20 2xl:px-[120px]">
+        {cards.map((card) => (
+          <PortfolioCard key={card.id} {...card} />
+        ))}
+      </BasicContainer>
+
+      <div className="tablet:hidden">
+        <ProjectSwiper
+          items={cards.map((card) => (
+            <PortfolioCard isHideShadow key={card.id} {...card} />
+          ))}
+        />
+      </div>
+    </div>
   );
 };
 

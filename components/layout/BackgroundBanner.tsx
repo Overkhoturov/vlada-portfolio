@@ -20,7 +20,7 @@ const BackgroundBanner: FC<PropsWithChildren> = ({ children }) => {
 
   return (
     <div
-      className="absolute left-0 top-0 w-full h-[388px] tablet:h-[470px] hd:h-[720px] full-hd:h-[1080px] 2k:h-[1440px] 4k:h-[2160px] flex items-center justify-center"
+      className="absolute left-0 top-0 w-full h-[480px] tablet:h-[600px] hd:h-[720px] full-hd:h-[1080px] 2k:h-[1440px] 4k:h-[2160px] flex items-center justify-center"
     >
       <div className="z-10">
         {children}
