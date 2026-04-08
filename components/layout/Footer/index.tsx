@@ -5,6 +5,7 @@ import LinkComponent from "../Header/LinkComponent";
 import { useParams } from "next/navigation";
 import { useDictionary } from "@/utils/providers/dictionary-context";
 import { ButtonType, ButtonVariant } from "@/components/Button";
+import Link from "next/link";
 
 const Footer = () => {
   const params = useParams();
@@ -29,7 +30,6 @@ const Footer = () => {
       text: dictionary.footer.contacts.linkedin,
     },
   ];
-  const downloadCv = () => {};
 
   const leftItems: TNavItem[] = [
     {
@@ -42,53 +42,61 @@ const Footer = () => {
       linkType: "local",
       text: dictionary.footer.navigation.about,
     },
-    {
-      text: dictionary.footer.navigation.cv,
-      onClick: downloadCv,
-    },
   ];
 
   return (
-    <footer className="bg-surface-container-fixed w-full flex flex-col items-center gap-4 px-4 py-8">
-      <div className="text-primary-inverse-fixed">
-        <LinkComponent link="/" linkType="local" lang={currentLang}>
-          <LogoIcon />
-        </LinkComponent>
-      </div>
-      <div className="flex gap-16">
-        <div>
-          <h3 className="text-body-medium-strong text-secondary-on-fixed mb-2">
-            {dictionary.footer.navigation.title}
-          </h3>
-          <ul className="flex flex-col gap-2 text-primary-inverse-fixed">
-            {leftItems.map((item) => (
-              <NavItem
-                {...item}
-                key={item.text}
-                text={item.text}
-                buttonType={ButtonType.LINK}
-                buttonVariant={ButtonVariant.GHOST}
-                btnClassName="!text-primary-inverse-fixed"
-              />
-            ))}
-          </ul>
+    <footer className="bg-surface-container-fixed w-full flex flex-col items-center gap-4 px-4 hd:px-16 2k:px-20 4k:px-24 py-8 2k:py-10 4k:py-12">
+      <div className="flex flex-col items-center hd:items-start hd:flex-row justify-between gap-4 w-full">
+        <div className="text-primary-inverse-fixed">
+          <LinkComponent link="/" linkType="local" lang={currentLang}>
+            <LogoIcon />
+          </LinkComponent>
         </div>
-        <div>
-          <h3 className="text-body-medium-strong text-secondary-on-fixed mb-2">
-            {dictionary.footer.contacts.title}
-          </h3>
-          <ul className="flex flex-col gap-2">
-            {rightItems.map((item) => (
-              <NavItem
-                {...item}
-                key={item.link}
-                text={item.text}
-                buttonType={ButtonType.LINK}
-                buttonVariant={ButtonVariant.GHOST}
-                btnClassName="!text-primary-inverse-fixed"
-              />
-            ))}
-          </ul>
+        <div className="flex gap-16">
+          <div>
+            <h3 className="text-body-medium-strong text-secondary-on-fixed mb-2">
+              {dictionary.footer.navigation.title}
+            </h3>
+            <ul className="flex flex-col gap-2 text-primary-inverse-fixed">
+              {leftItems.map((item) => (
+                <NavItem
+                  {...item}
+                  key={item.text}
+                  text={item.text}
+                  buttonType={ButtonType.LINK}
+                  buttonVariant={ButtonVariant.GHOST}
+                  btnClassName="!text-primary-inverse-fixed"
+                />
+              ))}
+              <li>
+                <Link
+                  href="/cv.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  download
+                >
+                  {dictionary.footer.navigation.cv}
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 className="text-body-medium-strong text-secondary-on-fixed mb-2">
+              {dictionary.footer.contacts.title}
+            </h3>
+            <ul className="flex flex-col gap-2">
+              {rightItems.map((item) => (
+                <NavItem
+                  {...item}
+                  key={item.link}
+                  text={item.text}
+                  buttonType={ButtonType.LINK}
+                  buttonVariant={ButtonVariant.GHOST}
+                  btnClassName="!text-primary-inverse-fixed"
+                />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
       <div className="w-full border-t border-solid border-outline-inverse-fixed" />
