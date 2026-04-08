@@ -55,7 +55,7 @@ const PortfolioBlock = () => {
       <div className="tablet:hidden">
         <ProjectSwiper
           items={cards.map((card) => (
-            <PortfolioCard isHideShadow key={card.id} {...card} />
+            <PortfolioCard isSwiper key={card.id} {...card} />
           ))}
         />
       </div>

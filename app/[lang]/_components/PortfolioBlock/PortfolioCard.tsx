@@ -12,7 +12,7 @@ type Props = {
   id: string;
   figmaUrl?: string;
   img: string;
-  isHideShadow?: boolean;
+  isSwiper?: boolean;
 };
 
 const PortfolioCard: FC<Props> = (props) => {
@@ -28,8 +28,9 @@ const PortfolioCard: FC<Props> = (props) => {
     <div
       className={classNames({
         "h-full p-6 rounded-[32px] border border-outline bg-surface-container shadow-drop-800-medium": true,
-        "shadow-drop-800-medium": !isDark && !props.isHideShadow,
-        "shadow-inner-100-small": isDark && !props.isHideShadow,
+        "shadow-drop-800-medium": !isDark && !props.isSwiper,
+        "shadow-inner-100-small": isDark && !props.isSwiper,
+        "min-h-[676px]": props.isSwiper
       })}
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
