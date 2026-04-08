@@ -9,31 +9,31 @@ const cards = [
     id: "pixual",
     img: "/portfolio/pixual.png",
     figmaUrl:
-      "https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share",
+      "https://www.figma.com/design/2XuOAaxqAanMhUDy1XsFIE/UI-kit.-Pixual?node-id=26-9781&t=vzA1CaSA8BTqa9pH-1",
   },
   {
     id: "expenso",
     img: "/portfolio/expenso.png",
     figmaUrl:
-      "https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share",
+      "https://www.figma.com/design/opLEuWqKiiP5Na3bbFFIYL/eXpenso?node-id=1432-31615&t=z1Aii35onF4boHzR-1",
   },
   {
     id: "breezify",
     img: "/portfolio/breezify.png",
     figmaUrl:
-      "https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share",
+      "https://www.figma.com/design/Veo94bdi9miMblF3sWtzqV/Breezify?node-id=141-3529&t=eAUlr3OHzw3s6c6G-1",
   },
   {
     id: "lettuce",
     img: "/portfolio/lettuce.png",
     figmaUrl:
-      "https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share",
+      "https://www.figma.com/design/OVNDndI2IPYBvZgKriLq8L/Lettuce?node-id=619-19210&t=rlm0RKsjHpbHOr7Y-1",
   },
   {
     id: "gts",
     img: "/portfolio/gts.png",
-    figmaUrl:
-      "https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share",
+    // figmaUrl:
+    //   "https://embed.figma.com/design/OB0Sn4S24ihYwaBbWBDPzw/Portfolio?node-id=1-3&embed-host=share",
   },
 ];
 

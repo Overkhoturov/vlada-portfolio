@@ -10,7 +10,7 @@ import LinkComponent from "@/components/layout/Header/LinkComponent";
 
 type Props = {
   id: string;
-  figmaUrl: string;
+  figmaUrl?: string;
   img: string;
   isHideShadow?: boolean;
 };
@@ -75,17 +75,19 @@ const PortfolioCard: FC<Props> = (props) => {
             ))}
           </div>
 
-          <div className="mt-4 tablet:mt-8 2k:mt-5 4k:mt-12">
-            <LinkComponent linkType="out" link={props.figmaUrl}>
-              <Button
-                variant="filled"
-                size="lg"
-                type="primary"
-                text={dictionary.home.main.cardDetailsBtn}
-                className="w-full"
-              />
-            </LinkComponent>
-          </div>
+          {props.figmaUrl && (
+            <div className="mt-4 tablet:mt-8 2k:mt-5 4k:mt-12">
+              <LinkComponent linkType="out" link={props.figmaUrl}>
+                <Button
+                  variant="filled"
+                  size="lg"
+                  type="primary"
+                  text={dictionary.home.main.cardDetailsBtn}
+                  className="w-full"
+                />
+              </LinkComponent>
+            </div>
+          )}
         </div>
       </div>
     </div>
