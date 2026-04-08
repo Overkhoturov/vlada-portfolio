@@ -1,6 +1,6 @@
 import Button, { ButtonType, ButtonVariant } from "@/components/Button";
 import { useParams, usePathname } from "next/navigation";
-import { FC, ReactNode, useMemo } from "react";
+import { FC, HTMLProps, ReactNode, useMemo } from "react";
 import LinkComponent from "./LinkComponent";
 import classNames from "classnames";
 
@@ -13,6 +13,7 @@ export type TNavItem = {
   exactMatch?: boolean;
   buttonType?: ButtonType;
   buttonVariant?: ButtonVariant;
+  btnClassName?: HTMLProps<HTMLElement>["className"];
 };
 
 const NavItem: FC<TNavItem> = ({
@@ -24,6 +25,7 @@ const NavItem: FC<TNavItem> = ({
   exactMatch = true,
   buttonType = ButtonType.SECONDARY,
   buttonVariant = ButtonVariant.GHOST,
+  btnClassName = '',
 }) => {
   const params = useParams();
   const pathname = usePathname();
@@ -59,6 +61,7 @@ const NavItem: FC<TNavItem> = ({
             className={classNames({
               "whitespace-nowrap": true,
               "text-secondary-on-fixed": isActive,
+              [btnClassName]: true
             })}
             variant={buttonVariant}
             type={buttonType}
@@ -72,6 +75,7 @@ const NavItem: FC<TNavItem> = ({
           className={classNames({
             "whitespace-nowrap": true,
             "text-secondary-on-fixed": isActive,
+            [btnClassName]: true
           })}
           variant={buttonVariant}
           type={buttonType}

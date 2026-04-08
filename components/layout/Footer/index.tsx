@@ -49,8 +49,8 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="w-full flex flex-col items-center gap-4 px-4 py-8">
-      <div>
+    <footer className="bg-surface-container-fixed w-full flex flex-col items-center gap-4 px-4 py-8">
+      <div className="text-primary-inverse-fixed">
         <LinkComponent link="/" linkType="local" lang={currentLang}>
           <LogoIcon />
         </LinkComponent>
@@ -60,7 +60,7 @@ const Footer = () => {
           <h3 className="text-body-medium-strong text-secondary-on-fixed mb-2">
             {dictionary.footer.navigation.title}
           </h3>
-          <ul className="flex flex-col gap-2 ">
+          <ul className="flex flex-col gap-2 text-primary-inverse-fixed">
             {leftItems.map((item) => (
               <NavItem
                 {...item}
@@ -68,6 +68,7 @@ const Footer = () => {
                 text={item.text}
                 buttonType={ButtonType.LINK}
                 buttonVariant={ButtonVariant.GHOST}
+                btnClassName="!text-primary-inverse-fixed"
               />
             ))}
           </ul>
@@ -84,13 +85,14 @@ const Footer = () => {
                 text={item.text}
                 buttonType={ButtonType.LINK}
                 buttonVariant={ButtonVariant.GHOST}
+                btnClassName="!text-primary-inverse-fixed"
               />
             ))}
           </ul>
         </div>
       </div>
       <div className="w-full border-t border-solid border-outline-inverse-fixed" />
-      <p className="text-body-medium-strong flex flex-col text-center">
+      <p className="text-primary-inverse-fixed text-body-medium-strong flex flex-col text-center">
         <span>
           © {currentYear}. {dictionary.footer.rightsReserved}
         </span>
