@@ -34,8 +34,8 @@ const PortfolioCard: FC<Props> = (props) => {
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
     >
-      <div className="w-full h-full flex flex-col 2xl:flex-row items-center gap-4 lg:gap-8">
-        <div className="relative w-full max-w-[364px] max-h-64 overflow-hidden rounded-xl">
+      <div className="w-full h-full flex flex-col tablet:flex-row items-center gap-4 lg:gap-8">
+        <div className="relative w-full max-h-64 overflow-hidden rounded-xl">
           <Image
             className={classNames({
               "porfolio-img w-full h-full object-cover transition duration-300 ease-in-out": true,
@@ -48,7 +48,7 @@ const PortfolioCard: FC<Props> = (props) => {
             height={256}
           />
         </div>
-        <div className="max-w-[364px] w-full">
+        <div className="tablet:max-w-none w-full grow flex flex-col justify-between">
           <h3 className="font-medium text-[32px] leading-10 mb-3">
             {dictionaryCard.title}
           </h3>
