@@ -27,16 +27,21 @@ const PortfolioCard: FC<Props> = (props) => {
   return (
     <div
       className={classNames({
-        "h-full p-6 rounded-[32px] border border-outline bg-surface-container shadow-drop-800-medium": true,
+        "h-full p-6 tablet:p-8 tablet:min-h-[384px] hd:min-h-[unset] rounded-[32px] bg-surface-container shadow-drop-800-medium": true,
         "shadow-drop-800-medium": !isDark && !props.isSwiper,
         "shadow-inner-100-small": isDark && !props.isSwiper,
-        "min-h-[676px]": props.isSwiper
+        "min-h-[676px] flex": props.isSwiper,
       })}
       onMouseOver={() => setOver(true)}
       onMouseOut={() => setOver(false)}
     >
-      <div className="w-full h-full flex flex-col tablet:flex-row items-center gap-4 lg:gap-8">
-        <div className="relative w-full max-h-64 overflow-hidden rounded-xl">
+      <div
+        className={classNames({
+          "w-full h-full flex flex-col tablet:flex-row items-center gap-4 lg:gap-8": true,
+          "h-auto": props.isSwiper,
+        })}
+      >
+        <div className="relative w-full tablet:h-full overflow-hidden rounded-xl">
           <Image
             className={classNames({
               "porfolio-img w-full h-full object-cover transition duration-300 ease-in-out": true,
@@ -50,30 +55,36 @@ const PortfolioCard: FC<Props> = (props) => {
           />
         </div>
         <div className="tablet:max-w-none w-full grow flex flex-col justify-between">
-          <h3 className="font-medium text-[32px] leading-10 mb-3">
-            {dictionaryCard.title}
-          </h3>
+          <div>
+            <h3 className="text-display-medium-strong mb-2 tablet:mb-4 2k:mb-5 4k:mb-6">
+              {dictionaryCard.title}
+            </h3>
 
-          <div className="flex flex-wrap items-center gap-3 mb-[58px]">
-            {dictionaryCard.mainTags.map((tag, index) => (
-              <Tag
-                className="lowercase"
-                key={index}
-                text={tag}
-                variant="primary"
-              />
-            ))}
-          </div>
+            <div className="flex items-center gap-2 mb-4 tablet:mb-8 2k:mb-10 whitespace-nowrap">
+              {dictionaryCard.mainTags.map((tag, index) => (
+                <Tag
+                  className={classNames({
+                    lowercase: true,
+                    "!block overflow-hidden text-ellipsis":
+                      index === dictionaryCard.mainTags.length - 1,
+                  })}
+                  key={index}
+                  text={tag}
+                  variant="primary"
+                />
+              ))}
+            </div>
 
-          <div className="flex flex-wrap items-center gap-3">
-            {dictionaryCard.additionalTags.map((tag, index) => (
-              <Tag
-                className="lowercase"
-                key={index}
-                text={tag}
-                variant="secondary"
-              />
-            ))}
+            <div className="flex flex-wrap items-center gap-2">
+              {dictionaryCard.additionalTags.map((tag, index) => (
+                <Tag
+                  className="lowercase"
+                  key={index}
+                  text={tag}
+                  variant="secondary"
+                />
+              ))}
+            </div>
           </div>
 
           {props.figmaUrl && (
