@@ -37,7 +37,7 @@ const PortfolioCard: FC<Props> = (props) => {
     >
       <div
         className={classNames({
-          "w-full h-full flex flex-col tablet:flex-row items-center gap-4 lg:gap-8": true,
+          "w-full h-full flex flex-col tablet:flex-row items-center gap-4 2k:gap-5 4k:gap-6": true,
           "h-auto": props.isSwiper,
         })}
       >
