@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import Image from "next/image";
 
 const NotFoundVideo = () => (
@@ -8,7 +9,7 @@ const NotFoundVideo = () => (
     playsInline
     className="w-full h-auto"
     poster="/not-found.gif"
-    onError={(e) => {
+    onError={(e: any) => {
       e.target.style.display = "none";
       e.target.nextElementSibling.style.display = "block";
     }}
@@ -20,7 +21,7 @@ const NotFoundVideo = () => (
       src="/not-found.gif"
       alt="Animation"
       style={{ display: "none" }}
-      onLoad={(e) => (e.target.style.display = "block")}
+      onLoad={(e: any) => (e.target.style.display = "block")}
     />
   </video>
 );
