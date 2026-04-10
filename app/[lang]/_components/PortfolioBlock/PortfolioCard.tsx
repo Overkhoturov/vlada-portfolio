@@ -38,7 +38,7 @@ const PortfolioCard: FC<Props> = (props) => {
       <div
         className={classNames({
           "w-full h-full flex flex-col tablet:flex-row items-center gap-4 2k:gap-5 4k:gap-6 ": true,
-          "h-auto": props.isSwiper,
+          "!h-auto": props.isSwiper,
         })}
       >
         <div className="relative w-full min-w-[49%] tablet:h-full overflow-hidden rounded-xl">
