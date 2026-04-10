@@ -9,7 +9,7 @@ export enum ButtonType {
 }
 
 export enum ButtonVariant {
-  OTULINED = 'outlined',
+  OUTLINED = 'outlined',
   FILLED = 'filled',
   GHOST = 'ghost',
 }
@@ -34,6 +34,8 @@ const Button: FC<Props> = ({
   onClick,
   className = "",
 }) => {
+  console.log('type', type)
+  console.log('variant', variant)
   return (
     <StyledButton
       onClick={onClick}
@@ -43,9 +45,9 @@ const Button: FC<Props> = ({
         "!bg-secondary-container-fixed text-primary-inverse-fixed hover:bg-primary-fixed active:bg-primary-fixed disabled:bg-tertiary-fixed":
           type === ButtonType.PRIMARY && variant === ButtonVariant.FILLED,
 
-        border: variant === "outlined",
+        "!border": variant === ButtonVariant.OUTLINED,
         "border-primary text-primary hover:border-primary-on-variant hover:text-primary-on-variant active:text-primary-on-variant active:border-primary-on-variant disabled:border-tertiary-on-fixed disabled:text-tertiary-on-fixed":
-          type === ButtonType.SECONDARY && variant === ButtonVariant.OTULINED,
+          type === ButtonType.SECONDARY && variant === ButtonVariant.OUTLINED,
 
         "text-primary hover:text-primary-on-variant active:text-primary-on-variant disabled:text-tertiary-on-fixed":
           type === ButtonType.SECONDARY && variant === ButtonVariant.GHOST,
