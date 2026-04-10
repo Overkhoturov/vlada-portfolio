@@ -3,6 +3,7 @@ import { BasicContainer } from "@/components/layout/Container";
 import PortfolioCard from "./PortfolioCard";
 import ProjectSwiper from "./ProjectSwiper";
 import { useDictionary } from "@/utils/providers/dictionary-context";
+import classNames from "classnames";
 
 const cards = [
   {
@@ -46,7 +47,14 @@ const PortfolioBlock = () => {
         {dictionary.home.main.title}
       </h1>
 
-      <BasicContainer className="hidden tablet:grid gap-8 grid-cols-1 full-hd:grid-cols-2 pt-8">
+      {/* "full-hd:max-w-[1440px] 2k:max-w-[1800px] 4k:max-w-[2160px]": !isHeader, */}
+
+      <BasicContainer
+        className={classNames({
+          "hidden tablet:grid gap-8 grid-cols-1 full-hd:grid-cols-2 4k:grid-cols-3 pt-8": true,
+          "!max-w-[unset]": true
+        })}
+      >
         {cards.map((card) => (
           <PortfolioCard key={card.id} {...card} />
         ))}
