@@ -1,6 +1,4 @@
-"use client";
-
-import useDetectLocale from "@/utils/i18n/useDetectLocale";
+import HomeLocaleDetection from "./_components/HomeLocaleDetection";
 
 export const metadata = {
   title: "Portfolio Prys",
@@ -29,11 +27,5 @@ export const metadata = {
 };
 
 export default function Home() {
-  useDetectLocale();
-
-  return (
-    <div className="flex justify-center items-center h-[100vh] text-lg">
-      Loading...
-    </div>
-  );
+  return <HomeLocaleDetection />;
 }
