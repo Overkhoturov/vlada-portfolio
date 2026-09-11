@@ -118,6 +118,21 @@
       "courses": "Courses"
     }
   },
+  "birthdayModal": {
+    "greeting": "Today is Vlada's birthday! You can congratulate her via these social links. Collaboration proposals are welcome too.",
+    "vladaSubtitle": "Especially for Vlada, below",
+    "inputPlaceholder": "Pet's name",
+    "inputHelper": "For verification, enter the name of one of your pets",
+    "inputError": "Not quite right, try again",
+    "okButton": "Ok",
+    "cancelButton": "Cancel",
+    "closeAriaLabel": "Close"
+  },
+  "birthdayPage": {
+    "title": "Happiest day on earth",
+    "text": "Text coming soon...",
+    "downloadPdf": "Download the gift (PDF)"
+  },
   "home": {
     "header": {
       "greetingTag": "Hi, I'm Vlada",

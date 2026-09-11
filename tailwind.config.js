@@ -154,6 +154,32 @@ module.exports = {
       backdropBlur: {
         medium: "32px",
       },
+      keyframes: {
+        "confetti-fall": {
+          "0%": {
+            transform: "translateY(-10%) rotate(0deg)",
+            opacity: "1",
+          },
+          "100%": {
+            transform: "translateY(110vh) rotate(600deg)",
+            opacity: "0.8",
+          },
+        },
+        "modal-pop": {
+          "0%": {
+            transform: "scale(0.92) translateY(12px)",
+            opacity: "0",
+          },
+          "100%": {
+            transform: "scale(1) translateY(0)",
+            opacity: "1",
+          },
+        },
+      },
+      animation: {
+        "confetti-fall": "confetti-fall linear infinite",
+        "modal-pop": "modal-pop 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+      },
     },
   },
   plugins: [],

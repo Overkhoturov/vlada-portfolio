@@ -4,6 +4,7 @@ import { getDictionary, Locale } from "@/utils/i18n/dictionaries";
 import { DictionaryProvider } from "@/utils/providers/dictionary-context";
 import { notFound } from "next/navigation";
 import ScrollToTop from "@/components/ScrollToTop";
+import BirthdayModal from "@/components/BirthdayModal";
 
 const validLanguages = ["en", "ru"];
 
@@ -27,6 +28,7 @@ export default async function RootLayout({ children, params }: LayoutProps) {
       {children}
       <Footer />
       <ScrollToTop />
+      <BirthdayModal />
     </DictionaryProvider>
   );
 }
