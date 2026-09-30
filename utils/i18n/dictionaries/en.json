@@ -119,19 +119,19 @@
     }
   },
   "birthdayModal": {
-    "greeting": "Today is Vlada's birthday! You can congratulate her via these social links. Collaboration proposals are welcome too.",
-    "vladaSubtitle": "Especially for Vlada, below",
+    "greeting": "Today is Vlada's birthday! You can congratulate her via the social media links below. Collaboration proposals are also welcome",
+    "vladaSubtitle": "Below is especially for Vlada",
     "inputPlaceholder": "Pet's name",
-    "inputHelper": "For verification, enter the name of one of your pets",
-    "inputError": "Not quite right, try again",
+    "inputHelper": "For verification, enter the name of one of your (or your parents') pets",
+    "inputError": "Wrong, try again",
     "okButton": "Ok",
     "cancelButton": "Cancel",
     "closeAriaLabel": "Close"
   },
   "birthdayPage": {
-    "title": "Happiest day on earth",
-    "text": "Text coming soon...",
-    "downloadPdf": "Download the gift (PDF)"
+    "title": "🎉Happy happiest day on earth!🎉",
+    "text": "Well, I was thinking of writing something long here...\nBut let it just be a gift without extra words, which are no longer appropriate.\n\nAnd of course, I couldn't do without a dumb meme (sorry for the swearing).",
+    "downloadPdf": "My last little gift to you (click here)"
   },
   "home": {
     "header": {
