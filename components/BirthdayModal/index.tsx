@@ -15,9 +15,10 @@ import HHIcon from "@/components/icons/HH";
 import Confetti from "./Confetti";
 
 const VISIBLE_DAYS = 2;
+const MOSCOW_UTC_OFFSET = "+03:00";
 
 const getVisibilityWindow = (dateStr: string) => {
-  const start = new Date(`${dateStr}T00:00:00`);
+  const start = new Date(`${dateStr}T00:00:00${MOSCOW_UTC_OFFSET}`);
   const end = new Date(start.getTime() + VISIBLE_DAYS * 24 * 60 * 60 * 1000);
   return { start, end };
 };
